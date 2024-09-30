@@ -1,61 +1,100 @@
-const outerCanvas = document.getElementById('outerCanvas') as HTMLCanvasElement; //This is going to be the background of the screen
-const constellationScreen = document.createElement('canvas');
-const satelliteScreen = document.createElement('canvas');
+window.onload = () => {
+  const outerCanvas = document.getElementById(
+    "outerCanvas",
+  ) as HTMLCanvasElement;
+  const graphCanvas = document.getElementById(
+    "graphCanvas",
+  ) as HTMLCanvasElement;
+  const constellationCanvas = document.getElementById(
+    "constellationCanvas",
+  ) as HTMLCanvasElement;
+  const statusCanvas = document.getElementById(
+    "statusCanvas",
+  ) as HTMLCanvasElement;
+  const activeStatusCanvas = document.getElementById(
+    "activeStatusCanvas",
+  ) as HTMLCanvasElement;
+  const raimCanvas = document.getElementById("raimCanvas") as HTMLCanvasElement;
 
-const ctxOuter = outerCanvas.getContext('2d');
-const ctxConstellation = constellationScreen.getContext('2d');
-const ctxSatallite = satelliteScreen.getContext('2d');
+  if (
+    outerCanvas &&
+    graphCanvas &&
+    constellationCanvas &&
+    statusCanvas &&
+    activeStatusCanvas &&
+    raimCanvas
+  ) {
+    const outerCtx = outerCanvas.getContext("2d");
+    const graphCtx = graphCanvas.getContext("2d");
+    const constellationCtx = constellationCanvas.getContext("2d");
+    const statusCtx = statusCanvas.getContext("2d");
+    const activeStatusCtx = activeStatusCanvas.getContext("2d");
+    const raimCtx = raimCanvas.getContext("2d");
 
-if (!ctxOuter || !ctxConstellation) {
-    throw new Error("Failed to get canvas context");
-}
+    if (
+      outerCtx &&
+      graphCtx &&
+      constellationCtx &&
+      statusCtx &&
+      activeStatusCtx &&
+      raimCtx
+    ) {
+      outerCanvas.width = outerCanvas.clientWidth;
+      outerCanvas.height = outerCanvas.clientHeight;
 
-// Set Background of the background canvas
-ctxOuter.fillStyle = 'gray';
-ctxOuter.fillRect(0, 0, outerCanvas.width, outerCanvas.height);
+      graphCanvas.width = outerCanvas.width;
+      graphCanvas.height = outerCanvas.height / 2;
 
-// Constellation Screen
-constellationScreen.width = 100;
-constellationScreen.height = 100;
-constellationScreen.id = 'constellation'
-outerCanvas.parentElement?.appendChild(constellationScreen)
-ctxConstellation.fillStyle = 'orange';
-ctxConstellation.fillRect(0, 0, constellationScreen.width, constellationScreen.height);
-//Need to add border around box
-//Need to add text at the top of the box with the word Constellation
-//Need to add a GPS rings in the box
+      constellationCanvas.width = outerCanvas.width / 3;
+      constellationCanvas.height = outerCanvas.height / 2;
 
-//Satellite Status Screen
-satelliteScreen.width = 100;
-satelliteScreen.height = 100;
-satelliteScreen.id = 'satellite'
-outerCanvas.parentElement?.appendChild(satelliteScreen)
-ctxSatallite.fillStyle = 'black'
-ctxSatallite?.fillRect(0,0,satelliteScreen.width, satelliteScreen.height);
+      statusCanvas.width = outerCanvas.width / 3;
+      statusCanvas.height = outerCanvas.height / 2;
 
-//Need to add the following:
-//  -EPU
-//  -HDOP
-//  -VFOM
-//Seperation Bar
-//  -Position
-//  -Time
-//  -ALT GSL
-//  -GS
-//  -Track
-//Border with the words 'Satallite Statu' at the top
+      activeStatusCanvas.width = outerCanvas.width / 3;
+      activeStatusCanvas.height = outerCanvas.height / 4;
 
-//Active GPS Status
-//  -Pilot
-//  -Copilot
-//  -Status
-//  -SBAS
+      raimCanvas.width = outerCanvas.width / 3;
+      raimCanvas.height = outerCanvas.height / 4;
 
-//RAIM Prediction
-//  -Waypoint
-//  ARV Time
-//  ARV Date
+      outerCtx.fillStyle = "gray";
+      outerCtx.fillRect(0, 0, outerCanvas.width, outerCanvas.height);
 
-//GPS Signal Strength
-//  -15 spots for bar graphs to be added
-//
+      // graphCtx.fillStyle = "yellow";
+      // graphCtx.fillRect(0, 0, graphCanvas.width, graphCanvas.height);
+
+      // constellationCtx.fillStyle = "green";
+      // constellationCtx.fillRect(
+      //   0,
+      //   0,
+      //   constellationCanvas.width,
+      //   constellationCanvas.height,
+      // );
+
+      // statusCtx.fillStyle = "blue";
+      // statusCtx.fillRect(0, 0, statusCanvas.width, statusCanvas.height);
+
+      // activeStatusCtx.fillStyle = "red";
+      // activeStatusCtx.fillRect(
+      //   0,
+      //   0,
+      //   activeStatusCanvas.width,
+      //   activeStatusCanvas.height,
+      // );
+
+      // raimCtx.fillStyle = "purple";
+      // raimCtx.fillRect(0, 0, raimCanvas.width, raimCanvas.height);
+      //
+      graphCtx.fillStyle = "rgba(255, 0, 0, 0.5)";
+      graphCtx.beginPath();
+      graphCtx.arc(
+        graphCanvas.width / 2,
+        graphCanvas.height / 2,
+        50,
+        0,
+        Math.PI * 2,
+      );
+      graphCtx.fill();
+    }
+  }
+};
