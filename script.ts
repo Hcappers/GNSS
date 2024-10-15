@@ -70,10 +70,10 @@ window.onload = () => {
     constellationCanvas.style.left = "0";
     constellationCanvas.style.backgroundColor = "red";
 
-    // statusCanvas.style.position = "absolute";
-    // statusCanvas.style.top = "0";
-    // statusCanvas.style.left = "0";
-    // statusCanvas.style.backgroundColor = "white";
+     statusCanvas.style.position = "absolute";
+     statusCanvas.style.top = "0";
+     statusCanvas.style.left = "0";
+     statusCanvas.style.backgroundColor = "white";
 
     // activeStatusCanvas.style.position = "absolute";
     // activeStatusCanvas.style.top = "50%";
