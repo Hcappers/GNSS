@@ -42,59 +42,34 @@ window.onload = () => {
       outerCanvas.width = outerCanvas.clientWidth;
       outerCanvas.height = outerCanvas.clientHeight;
 
-      graphCanvas.width = outerCanvas.width;
-      graphCanvas.height = outerCanvas.height / 2;
+      graphCanvas.width = graphCanvas.clientWidth;
+      graphCanvas.height = graphCanvas.clientHeight;
 
-      constellationCanvas.width = outerCanvas.width / 3;
-      constellationCanvas.height = outerCanvas.height / 2;
+      constellationCanvas.width = constellationCanvas.clientWidth;
+      constellationCanvas.height = constellationCanvas.clientHeight;
 
-      statusCanvas.width = outerCanvas.width / 3;
-      statusCanvas.height = outerCanvas.height / 2;
-
-      activeStatusCanvas.width = outerCanvas.width / 3;
-      activeStatusCanvas.height = outerCanvas.height / 4;
-
-      raimCanvas.width = outerCanvas.width / 3;
-      raimCanvas.height = outerCanvas.height / 4;
-
-      outerCtx.fillStyle = "gray";
-      outerCtx.fillRect(0, 0, outerCanvas.width, outerCanvas.height);
-
-      // graphCtx.fillStyle = "yellow";
-      // graphCtx.fillRect(0, 0, graphCanvas.width, graphCanvas.height);
-
-      // constellationCtx.fillStyle = "green";
-      // constellationCtx.fillRect(
-      //   0,
-      //   0,
-      //   constellationCanvas.width,
-      //   constellationCanvas.height,
-      // );
-
-      // statusCtx.fillStyle = "blue";
-      // statusCtx.fillRect(0, 0, statusCanvas.width, statusCanvas.height);
-
-      // activeStatusCtx.fillStyle = "red";
-      // activeStatusCtx.fillRect(
-      //   0,
-      //   0,
-      //   activeStatusCanvas.width,
-      //   activeStatusCanvas.height,
-      // );
-
-      // raimCtx.fillStyle = "purple";
-      // raimCtx.fillRect(0, 0, raimCanvas.width, raimCanvas.height);
-      //
-      graphCtx.fillStyle = "rgba(255, 0, 0, 0.5)";
-      graphCtx.beginPath();
-      graphCtx.arc(
-        graphCanvas.width / 2,
-        graphCanvas.height / 2,
-        50,
-        0,
-        Math.PI * 2,
-      );
-      graphCtx.fill();
+      statusCanvas.width = statusCanvas.clientWidth;
+      statusCanvas.height = statusCanvas.clientHeight;
     }
+
+    outerCanvas.style.position = "absolute";
+    outerCanvas.style.top = "0";
+    outerCanvas.style.left = "0";
+    outerCanvas.style.backgroundColor = "green";
+
+    graphCanvas.style.position = "absolute";
+    graphCanvas.style.top = "50%";
+    graphCanvas.style.left = "0";
+    graphCanvas.style.backgroundColor = "blue";
+
+    constellationCanvas.style.position = "absolute";
+    constellationCanvas.style.top = "0";
+    constellationCanvas.style.left = "0";
+    constellationCanvas.style.backgroundColor = "red";
+
+    statusCanvas.style.position = "absolute";
+    statusCanvas.style.top = "0";
+    statusCanvas.style.left = "0";
+    statusCanvas.style.backgroundColor = "black";
   }
 };
