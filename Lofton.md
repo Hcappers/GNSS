@@ -7,3 +7,13 @@ During this sprint I worked researching TypeScript since I have never done any w
 Struggling to get the canvases to stack properly but can edit each individual canvas.
 
 ## Sprint 2
+
+### 10/8/2024
+
+Was able to get the canvases to properly stack still working on the resizing and placement of each individual canvas.
+
+### 10/10/2024
+
+Found out how to resize the individual canvases to place them in a position that makes sense with page we are trying to replicate from the customer.
+
+Struggling to get all canvases to be visible since after a certain point they are not visible.
