@@ -17,3 +17,11 @@ Was able to get the canvases to properly stack still working on the resizing and
 Found out how to resize the individual canvases to place them in a position that makes sense with page we are trying to replicate from the customer.
 
 Struggling to get all canvases to be visible since after a certain point they are not visible.
+
+## Sprint 3
+
+### 10/22/2024
+
+Realized the original way I was trying to create the boxes was really bad and not the way I needed to go about it. I created a new branch that would only use a single canvas and draw everything on that canvas. Was able to recreate all of the original boxes I needed as well as adding text.
+
+I did everything manually so I started to reformat everything in a way that would be easier to add more boxes or other features in the future.
