@@ -1,66 +1,47 @@
-window.onload = () => {
-  const outerCanvas = document.getElementById("outerCanvas") as HTMLCanvasElement;
+const canvas = document.getElementById("outerCanvas") as HTMLCanvasElement;
+const ctx = canvas.getContext("2d");
 
-  if (outerCanvas) {
-    const outerCtx = outerCanvas.getContext("2d");
-
-    if (outerCtx) {
-      outerCanvas.width = outerCanvas.clientWidth;
-      outerCanvas.height = outerCanvas.clientHeight;
-      outerCanvas.style.position = "absolute";
-      outerCanvas.style.top = "0";
-      outerCanvas.style.left = "0";
-      outerCanvas.style.backgroundColor = "black";
-
-      //Constellation
-      outerCtx.fillStyle = "white";
-      outerCtx.fillRect(0, 0, 466, 525);
-      outerCtx.strokeStyle = "black";
-      outerCtx.lineWidth = 1;
-      outerCtx.strokeRect(0, 0, 466, 525);
-      outerCtx.fillStyle = "black";
-      outerCtx.font = "30px Arial";
-      outerCtx.fillText("Constellation", 150, 50);
-
-      //Satellite Status
-      outerCtx.fillStyle = "white";
-      outerCtx.fillRect(467, 0, 466, 525);
-      outerCtx.strokeStyle = "black";
-      outerCtx.lineWidth = 1;
-      outerCtx.strokeRect(467, 0, 466, 525);
-      outerCtx.fillStyle = "black";
-      outerCtx.font = "30px Arial";
-      outerCtx.fillText("Satellite Status", 600, 50);
-
-      //Active GPS Status
-      outerCtx.fillStyle = "white";
-      outerCtx.fillRect(934, 0, 466, 262);
-      outerCtx.strokeStyle = "black";
-      outerCtx.lineWidth = 1;
-      outerCtx.strokeRect(934, 0, 466, 262);
-      outerCtx.fillStyle = "black";
-      outerCtx.font = "30px Arial";
-      outerCtx.fillText("Active GPS Status", 1050, 50);
-
-      //RAIM Prediction
-      outerCtx.fillStyle = "white";
-      outerCtx.fillRect(934, 263, 466, 262);
-      outerCtx.strokeStyle = "black";
-      outerCtx.lineWidth = 1;
-      outerCtx.strokeRect(934, 263, 466, 262);
-      outerCtx.fillStyle = "black";
-      outerCtx.font = "30px Arial";
-      outerCtx.fillText("RAIM Prediction", 1050, 313);
-
-      //GPS Signal Strength
-      outerCtx.fillStyle = "white";
-      outerCtx.fillRect(0, 525, 1400, 525);
-      outerCtx.strokeStyle = "black";
-      outerCtx.lineWidth = 1;
-      outerCtx.strokeRect(0, 525, 1400, 525);
-      outerCtx.fillStyle = "black";
-      outerCtx.font = "30px Arial";
-      outerCtx.fillText("GPS Signal Strength", 600, 575);
-    }
+function initCanvas() {
+  if (ctx) {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    canvas.style.position = "absolute";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.backgroundColor = "black";
   }
-};
+}
+
+function drawBox(x: number, y: number, width: number, height: number, color: string) {
+  if (ctx) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, width, height);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x, y, width, height);
+  }
+}
+
+function drawRing(x: number, y: number, outerRadius: number, innerRadius: number) {
+  if (ctx) {
+    ctx.beginPath();
+    ctx.arc(x, y, outerRadius, 0, Math.PI * 2, false);
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(x, y, innerRadius, 0, Math.PI * 2, true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+  }
+}
+
+initCanvas();
+//Constellation
+drawBox(0, 0, 466, 525, "white");
+//Satellite Status
+drawBox(467, 0, 466, 525, "white");
+//Active GPS Status
+drawBox(934, 0, 466, 262, "white");
+//RAIM Prediction
+drawBox(934, 263, 466, 262, "white");
+//GPS Signal Strength
+drawBox(0, 525, 1400, 525, "white");
