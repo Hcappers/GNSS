@@ -25,3 +25,7 @@ Struggling to get all canvases to be visible since after a certain point they ar
 Realized the original way I was trying to create the boxes was really bad and not the way I needed to go about it. I created a new branch that would only use a single canvas and draw everything on that canvas. Was able to recreate all of the original boxes I needed as well as adding text.
 
 I did everything manually so I started to reformat everything in a way that would be easier to add more boxes or other features in the future.
+
+### 10/23/2024
+
+Refactored the code on the test-tyler-no-canvases branch to be more modular and easier to add more boxes in the future. Started working on how to create rings for our satellite constellation map.
