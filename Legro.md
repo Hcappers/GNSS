@@ -19,3 +19,8 @@ Created presentation template
 ### 10/15/2024
 
 Continued on the presentation.
+
+### 10/18/2024
+
+Submit presentation.
+
