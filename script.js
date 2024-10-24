@@ -37,6 +37,13 @@ function addText(x, y, text, fontSize) {
         ctx.fillText(text, x, y);
     }
 }
+function activeGPSStatus() {
+    addText(945, 30, "Active GPS Status", 25);
+    addText(945, 90, "Pilot", 20);
+    addText(945, 130, "Copilot", 20);
+    addText(945, 170, "Status", 20);
+    addText(945, 210, "SBAS", 20);
+}
 initCanvas();
 //Constellation
 drawBox(0, 0, 466, 525, "white");
@@ -44,8 +51,8 @@ drawBox(0, 0, 466, 525, "white");
 drawBox(467, 0, 466, 525, "white");
 //Active GPS Status
 drawBox(934, 0, 466, 262, "white");
+activeGPSStatus();
 //RAIM Prediction
 drawBox(934, 263, 466, 262, "white");
 //GPS Signal Strength
 drawBox(0, 525, 1400, 525, "white");
-addText(100, 100, "testing", 50);
