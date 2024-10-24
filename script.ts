@@ -42,14 +42,28 @@ function addText(x: number, y: number, text: string, fontSize: number) {
   }
 }
 
+function raimPrediction() {
+  addText(945, 290, "RAIM Prediction", 25);
+
+  addText(945, 330, "Waypoint", 20);
+  addText(945, 370, "ARV Time", 20);
+  addText(945, 410, "ARV Date", 20);
+}
+
 initCanvas();
+
 //Constellation
 drawBox(0, 0, 466, 525, "white");
+
 //Satellite Status
 drawBox(467, 0, 466, 525, "white");
+
 //Active GPS Status
 drawBox(934, 0, 466, 262, "white");
+
 //RAIM Prediction
 drawBox(934, 263, 466, 262, "white");
+raimPrediction();
+
 //GPS Signal Strength
 drawBox(0, 525, 1400, 525, "white");
