@@ -34,6 +34,14 @@ function drawRing(x: number, y: number, outerRadius: number, innerRadius: number
   }
 }
 
+function addText(x: number, y: number, text: string, fontSize: number) {
+  if (ctx) {
+    ctx.font = `${fontSize}px Arial`;
+    ctx.fillStyle = "black";
+    ctx.fillText(text, x, y);
+  }
+}
+
 initCanvas();
 //Constellation
 drawBox(0, 0, 466, 525, "white");
