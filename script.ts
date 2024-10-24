@@ -1,61 +1,55 @@
-const outerCanvas = document.getElementById('outerCanvas') as HTMLCanvasElement; //This is going to be the background of the screen
-const constellationScreen = document.createElement('canvas');
-const satelliteScreen = document.createElement('canvas');
+const canvas = document.getElementById("outerCanvas") as HTMLCanvasElement;
+const ctx = canvas.getContext("2d");
 
-const ctxOuter = outerCanvas.getContext('2d');
-const ctxConstellation = constellationScreen.getContext('2d');
-const ctxSatallite = satelliteScreen.getContext('2d');
-
-if (!ctxOuter || !ctxConstellation) {
-    throw new Error("Failed to get canvas context");
+function initCanvas() {
+  if (ctx) {
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+    canvas.style.position = "absolute";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.backgroundColor = "black";
+  }
 }
 
-// Set Background of the background canvas
-ctxOuter.fillStyle = 'gray';
-ctxOuter.fillRect(0, 0, outerCanvas.width, outerCanvas.height);
+function drawBox(x: number, y: number, width: number, height: number, color: string) {
+  if (ctx) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, width, height);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1;
+    ctx.strokeRect(x, y, width, height);
+  }
+}
 
-// Constellation Screen
-constellationScreen.width = 100;
-constellationScreen.height = 100;
-constellationScreen.id = 'constellation'
-outerCanvas.parentElement?.appendChild(constellationScreen)
-ctxConstellation.fillStyle = 'orange';
-ctxConstellation.fillRect(0, 0, constellationScreen.width, constellationScreen.height);
-//Need to add border around box
-//Need to add text at the top of the box with the word Constellation
-//Need to add a GPS rings in the box
+function drawRing(x: number, y: number, outerRadius: number, innerRadius: number) {
+  if (ctx) {
+    ctx.beginPath();
+    ctx.arc(x, y, outerRadius, 0, Math.PI * 2, false);
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(x, y, innerRadius, 0, Math.PI * 2, true);
+    ctx.fillStyle = "white";
+    ctx.fill();
+  }
+}
 
-//Satellite Status Screen
-satelliteScreen.width = 100;
-satelliteScreen.height = 100;
-satelliteScreen.id = 'satellite'
-outerCanvas.parentElement?.appendChild(satelliteScreen)
-ctxSatallite.fillStyle = 'black'
-ctxSatallite?.fillRect(0,0,satelliteScreen.width, satelliteScreen.height);
+function addText(x: number, y: number, text: string, fontSize: number) {
+  if (ctx) {
+    ctx.font = `${fontSize}px Arial`;
+    ctx.fillStyle = "black";
+    ctx.fillText(text, x, y);
+  }
+}
 
-//Need to add the following:
-//  -EPU
-//  -HDOP
-//  -VFOM
-//Seperation Bar
-//  -Position
-//  -Time
-//  -ALT GSL
-//  -GS
-//  -Track
-//Border with the words 'Satallite Statu' at the top
-
+initCanvas();
+//Constellation
+drawBox(0, 0, 466, 525, "white");
+//Satellite Status
+drawBox(467, 0, 466, 525, "white");
 //Active GPS Status
-//  -Pilot
-//  -Copilot
-//  -Status
-//  -SBAS
-
+drawBox(934, 0, 466, 262, "white");
 //RAIM Prediction
-//  -Waypoint
-//  ARV Time
-//  ARV Date
-
+drawBox(934, 263, 466, 262, "white");
 //GPS Signal Strength
-//  -15 spots for bar graphs to be added
-//
+drawBox(0, 525, 1400, 525, "white");

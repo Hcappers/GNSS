@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Inside Canvas</title>
+    <title>GNSS</title>
     <style>
         #outerCanvas {
             border: 1px solid black;
-            position: relative;
-        }
-        #innerCanvas {
-            border: 1px dashed red;
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 0;
+            left: 0;
+            width: 1400px;
+            height: 1050px;
+            background-color: gray;
         }
     </style>
 </head>
 <body>
-    <canvas id="outerCanvas" style="border:2px solid black"></canvas>
-    <canvas id="innercanvas"></canvas>
+    <canvas id="outerCanvas"></canvas>
     <script src="script.js"></script>
 </body
 </html>
