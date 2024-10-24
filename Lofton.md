@@ -29,3 +29,7 @@ I did everything manually so I started to reformat everything in a way that woul
 ### 10/23/2024
 
 Refactored the code on the test-tyler-no-canvases branch to be more modular and easier to add more boxes in the future. Started working on how to create rings for our satellite constellation map.
+
+### 10/24/2024
+
+Added a function to add text onto the canvas.
