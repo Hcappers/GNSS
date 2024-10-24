@@ -52,14 +52,19 @@ function activeGPSStatus() {
 }
 
 initCanvas();
+
 //Constellation
 drawBox(0, 0, 466, 525, "white");
+
 //Satellite Status
 drawBox(467, 0, 466, 525, "white");
+
 //Active GPS Status
 drawBox(934, 0, 466, 262, "white");
 activeGPSStatus();
+
 //RAIM Prediction
 drawBox(934, 263, 466, 262, "white");
+
 //GPS Signal Strength
 drawBox(0, 525, 1400, 525, "white");
