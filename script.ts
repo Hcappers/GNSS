@@ -1,5 +1,7 @@
 const canvas = document.getElementById("outerCanvas") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d");
+const width = canvas.clientWidth;
+const height = canvas.clientHeight;
 
 function initCanvas() {
   if (ctx) {
@@ -44,12 +46,14 @@ function addText(x: number, y: number, text: string, fontSize: number) {
 
 initCanvas();
 //Constellation
-drawBox(0, 0, 466, 525, "white");
+drawBox(0, 0, width / 3, height / 2, "white");
 //Satellite Status
-drawBox(467, 0, 466, 525, "white");
+drawBox(467, 0, width / 3, height / 2, "white");
 //Active GPS Status
-drawBox(934, 0, 466, 262, "white");
+drawBox(934, 0, width / 3, height / 4, "white");
 //RAIM Prediction
-drawBox(934, 263, 466, 262, "white");
+drawBox(934, 263, width / 3, height / 4, "white");
 //GPS Signal Strength
-drawBox(0, 525, 1400, 525, "white");
+drawBox(0, 525, width, height / 2, "white");
+addText(50, 560, "GPS Signal Strength", 25);
+drawBox(50, 575, 1300, 425, "white");
