@@ -5,8 +5,11 @@
     - This spring I was really struggling on how to work with canvas and get two canvas to stack together. 
 
 ## Sprint 2
-    - During this sprint I was able to get 2 canvas to stack and to change the color of the each canvas seperatly.
-    - An issue I ran into was that once I got more then two canvas they would not stack any more and just move to random spots on the screen. 
+### 08OCT24
+    - Was able to get individual canvases to properly stack
+### 10OCT24
+    - Gained the ability to change the size of each canvas
+    - Still having an issue that after 3 canvases are added the fourth never shows
 
 ## Sprint 3
 ### 23OCT24
