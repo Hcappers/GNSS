@@ -1,5 +1,7 @@
 var canvas = document.getElementById("outerCanvas");
 var ctx = canvas.getContext("2d");
+var width = canvas.clientWidth;
+var height = canvas.clientHeight;
 function initCanvas() {
     if (ctx) {
         canvas.width = canvas.clientWidth;
@@ -43,16 +45,29 @@ function activeGPSStatus() {
     addText(945, 130, "Copilot", 20);
     addText(945, 170, "Status", 20);
     addText(945, 210, "SBAS", 20);
+function raimPrediction() {
+    addText(945, 290, "RAIM Prediction", 25);
+    addText(945, 330, "Waypoint", 20);
+    addText(945, 370, "ARV Time", 20);
+    addText(945, 410, "ARV Date", 20);
 }
 initCanvas();
 //Constellation
-drawBox(0, 0, 466, 525, "white");
+drawBox(0, 0, width / 3, height / 2, "white");
 //Satellite Status
-drawBox(467, 0, 466, 525, "white");
+drawBox(467, 0, width / 3, height / 2, "white");
 //Active GPS Status
 drawBox(934, 0, 466, 262, "white");
 activeGPSStatus();
+drawBox(934, 0, width / 3, height / 4, "white");
 //RAIM Prediction
 drawBox(934, 263, 466, 262, "white");
+raimPrediction();
 //GPS Signal Strength
 drawBox(0, 525, 1400, 525, "white");
+
+drawBox(934, 263, width / 3, height / 4, "white");
+//GPS Signal Strength
+drawBox(0, 525, width, height / 2, "white");
+addText(50, 560, "GPS Signal Strength", 25);
+drawBox(50, 575, 1300, 425, "white");
