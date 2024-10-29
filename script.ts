@@ -44,7 +44,15 @@ function addText(x: number, y: number, text: string, fontSize: number) {
   }
 }
 
-function raimPrediction() {
+function activeGPSStatus() {
+  addText(945, 30, "Active GPS Status", 25);
+
+  addText(945, 90, "Pilot", 20);
+  addText(945, 130, "Copilot", 20);
+  addText(945, 170, "Status", 20);
+  addText(945, 210, "SBAS", 20);
+
+  function raimPrediction() {
   addText(945, 290, "RAIM Prediction", 25);
 
   addText(945, 330, "Waypoint", 20);
@@ -62,6 +70,11 @@ drawBox(467, 0, 466, 525, "white");
 
 //Active GPS Status
 drawBox(934, 0, 466, 262, "white");
+activeGPSStatus();
+
+//RAIM Prediction
+drawBox(934, 263, 466, 262, "white");
+
 
 //RAIM Prediction
 drawBox(934, 263, 466, 262, "white");
