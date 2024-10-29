@@ -51,8 +51,9 @@ function activeGPSStatus() {
   addText(945, 130, "Copilot", 20);
   addText(945, 170, "Status", 20);
   addText(945, 210, "SBAS", 20);
+}
 
-  function raimPrediction() {
+function raimPrediction() {
   addText(945, 290, "RAIM Prediction", 25);
 
   addText(945, 330, "Waypoint", 20);
@@ -60,34 +61,21 @@ function activeGPSStatus() {
   addText(945, 410, "ARV Date", 20);
 }
 
+function gpsSignalStrength() {
+  addText(50, 560, "GPS Signal Strength", 25);
+
+  drawBox(50, 575, 1300, 425, "white");
+}
+
+function initBoxes() {
+  drawBox(0, 0, 466, 525, "white"); //Constellation
+  drawBox(467, 0, 466, 525, "white"); //Satellite Status
+  drawBox(934, 0, 466, 262, "white"); //Active GPS Status
+  drawBox(934, 263, 466, 262, "white"); //RAIM Prediction
+  drawBox(0, 525, 1400, 525, "white"); //GPS Signal Strength
+}
 initCanvas();
-
-//Constellation
-drawBox(0, 0, 466, 525, "white");
-
-//Satellite Status
-drawBox(467, 0, 466, 525, "white");
-
-//Active GPS Status
-drawBox(934, 0, 466, 262, "white");
+initBoxes();
 activeGPSStatus();
-
-//RAIM Prediction
-drawBox(934, 263, 466, 262, "white");
-
-
-//RAIM Prediction
-drawBox(934, 263, 466, 262, "white");
 raimPrediction();
-
-drawBox(0, 0, width / 3, height / 2, "white");
-//Satellite Status
-drawBox(467, 0, width / 3, height / 2, "white");
-//Active GPS Status
-drawBox(934, 0, width / 3, height / 4, "white");
-//RAIM Prediction
-drawBox(934, 263, width / 3, height / 4, "white");
-//GPS Signal Strength
-drawBox(0, 525, width, height / 2, "white");
-addText(50, 560, "GPS Signal Strength", 25);
-drawBox(50, 575, 1300, 425, "white");
+gpsSignalStrength();
