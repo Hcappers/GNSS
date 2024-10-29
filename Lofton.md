@@ -35,3 +35,5 @@ Refactored the code on the test-tyler-no-canvases branch to be more modular and 
 Added a function to add text onto the canvas and merged my test branch to main to create a working skeleton.
 
 Started work on adding a bar graph feature to the canvas.
+
+Added text for the RAIM Prediction and Active GPS Status windows.
