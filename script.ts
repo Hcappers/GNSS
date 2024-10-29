@@ -63,10 +63,10 @@ function addText(x: number, y: number, text: string, fontSize: number) {
 function activeGPSStatus() {
   addText(945, 30, "Active GPS Status", 25);
 
-  addText(945, 90, "Pilot", 20);
-  addText(945, 130, "Copilot", 20);
-  addText(945, 170, "Status", 20);
-  addText(945, 210, "SBAS", 20);
+  addText(945, 70, "Pilot", 20);
+  addText(945, 110, "Copilot", 20);
+  addText(945, 150, "Status", 20);
+  addText(945, 190, "SBAS", 20);
 }
 
 function raimPrediction() {
@@ -94,9 +94,25 @@ function initBoxes() {
 function constellation() {
   drawRing(200, 200, 100, 30);
 }
+
+function satelliteStatus() {
+  addText(480, 30, "Satellite Status", 25);
+
+  addText(480, 70, "EPU", 20);
+  addText(480, 110, "HDOP", 20);
+  addText(480, 150, "HFOM", 20);
+  addText(480, 190, "VFOM", 20);
+  addText(480, 230, "Position", 20);
+  addText(480, 310, "Time", 20);
+  addText(480, 350, "ALT GSL", 20);
+  addText(480, 390, "GS", 20);
+  addText(480, 430, "Track", 20);
+}
+
 initCanvas();
 initBoxes();
 activeGPSStatus();
 raimPrediction();
 gpsSignalStrength();
 constellation();
+satelliteStatus();
