@@ -18,28 +18,44 @@ function drawBox(x: number, y: number, width: number, height: number, color: str
   if (ctx) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
-    ctx.strokeStyle = "black";
+    ctx.strokeStyle = "white";
     ctx.lineWidth = 1;
     ctx.strokeRect(x, y, width, height);
   }
 }
 
-function drawRing(x: number, y: number, outerRadius: number, innerRadius: number) {
+function drawRing(x: number, y: number, outerRadius: number, gap: number) {
   if (ctx) {
-    ctx.beginPath();
+    let innerRadius1 = outerRadius - gap;
+    let innerRadius2 = outerRadius - 2 * gap;
+
+    //  Draw outer ring
     ctx.arc(x, y, outerRadius, 0, Math.PI * 2, false);
-    ctx.fillStyle = "black";
+    ctx.strokeStyle = "white";
     ctx.beginPath();
-    ctx.arc(x, y, innerRadius, 0, Math.PI * 2, true);
-    ctx.fillStyle = "white";
-    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw middle ring
+    ctx.beginPath();
+    ctx.arc(x, y, innerRadius1, 0, Math.PI * 2, false);
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw inner ring
+    ctx.beginPath();
+    ctx.arc(x, y, innerRadius2, 0, Math.PI * 2, false);
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 2;
+    ctx.stroke();
   }
 }
 
 function addText(x: number, y: number, text: string, fontSize: number) {
   if (ctx) {
     ctx.font = `${fontSize}px Arial`;
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillText(text, x, y);
   }
 }
@@ -64,18 +80,23 @@ function raimPrediction() {
 function gpsSignalStrength() {
   addText(50, 560, "GPS Signal Strength", 25);
 
-  drawBox(50, 575, 1300, 425, "white");
+  drawBox(50, 575, 1300, 425, "#2f2f2f");
 }
 
 function initBoxes() {
-  drawBox(0, 0, 466, 525, "white"); //Constellation
-  drawBox(467, 0, 466, 525, "white"); //Satellite Status
-  drawBox(934, 0, 466, 262, "white"); //Active GPS Status
-  drawBox(934, 263, 466, 262, "white"); //RAIM Prediction
-  drawBox(0, 525, 1400, 525, "white"); //GPS Signal Strength
+  drawBox(0, 0, 466, 525, "#2f2f2f"); //Constellation
+  drawBox(467, 0, 466, 525, "#2f2f2f"); //Satellite Status
+  drawBox(934, 0, 466, 262, "#2f2f2f"); //Active GPS Status
+  drawBox(934, 263, 466, 262, "#2f2f2f"); //RAIM Prediction
+  drawBox(0, 525, 1400, 525, "#2f2f2f"); //GPS Signal Strength
+}
+
+function constellation() {
+  drawRing(200, 200, 100, 30);
 }
 initCanvas();
 initBoxes();
 activeGPSStatus();
 raimPrediction();
 gpsSignalStrength();
+constellation();
