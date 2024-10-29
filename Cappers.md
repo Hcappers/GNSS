@@ -16,4 +16,10 @@
     - On this day I got my working branch to have a canvas with added text, and was able to make rings for the contellation graph
 ### 24OCT24
     - On this day I was able to take the text I made on a canvas and piviot that information over to the new style of just trying the boxes instead of using canvas for each box. I was also able to add the text for the other two screens. 
-    - Started to work on the bar graph, right now it is just a rectangle with a grid. 
+    - Started to work on the bar graph, right now it is just a rectangle with a grid.
+
+## Sprint 4
+### 29OCT24
+    - Continued working on the window, created functions to create each window and add the each bit of data for it
+    
+
