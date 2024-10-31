@@ -106,9 +106,13 @@ function satelliteStatus() {
 function activeGPSStatus() {
     addText(945, 30, "Active GPS Status", 25);
     addText(945, 70, "Pilot", 20);
+    addText(1275, 70, "____", 20);
     addText(945, 110, "Copilot", 20);
+    addText(1275, 110, "____", 20);
     addText(945, 150, "Status", 20);
+    addText(1275, 150, "____", 20);
     addText(945, 190, "SBAS", 20);
+    addText(1275, 190, "____", 20);
 }
 function raimPrediction() {
     addText(945, 290, "RAIM Prediction", 25);
