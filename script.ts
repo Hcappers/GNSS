@@ -148,8 +148,12 @@ function gpsSignalStrength() {
   for (let i = 0; i < 3; i++) {
     drawLine(50, 1350, 1000 - (425 / 4) * (i + 1), 1000 - (425 / 4) * (i + 1), 2, "white");
   }
-  let graphPercent = 0.8;
-  drawBox(60, 575 + 425 * (1 - graphPercent), 75, 425 * graphPercent, "yellow");
+
+  let percents: number[] = [0.8, 0.6, 0.4, 0.2];
+
+  for (let i = 0; i < percents.length; i++) {
+    drawBox(60 + 85 * i, 575 + 425 * (1 - percents[i]), 75, 425 * percents[i], "#ACE5EE");
+  }
 }
 
 initCanvas();
