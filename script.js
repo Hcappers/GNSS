@@ -120,8 +120,10 @@ function gpsSignalStrength() {
     addText(50, 560, "GPS Signal Strength", 25);
     drawBox(50, 575, 1300, 425, "#2f2f2f");
     for (var i = 0; i < 3; i++) {
-        drawLine(50, 1350, 1000 - 106 * (i + 1), 1000 - 106 * (i + 1), 2, "white");
+        drawLine(50, 1350, 1000 - (425 / 4) * (i + 1), 1000 - (425 / 4) * (i + 1), 2, "white");
     }
+    var graphPercent = 0.8;
+    drawBox(60, 575 + 425 * (1 - graphPercent), 75, 425 * graphPercent, "yellow");
 }
 initCanvas();
 initBoxes();
