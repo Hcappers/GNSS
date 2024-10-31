@@ -3,6 +3,9 @@ const ctx = canvas.getContext("2d");
 const width = canvas.clientWidth;
 const height = canvas.clientHeight;
 
+//######################
+//##  Init Functions  ##
+//######################
 function initCanvas() {
   if (ctx) {
     canvas.width = canvas.clientWidth;
@@ -14,6 +17,17 @@ function initCanvas() {
   }
 }
 
+function initBoxes() {
+  drawBox(0, 0, 466, 525, "#2f2f2f"); //Constellation
+  drawBox(467, 0, 466, 525, "#2f2f2f"); //Satellite Status
+  drawBox(934, 0, 466, 262, "#2f2f2f"); //Active GPS Status
+  drawBox(934, 263, 466, 262, "#2f2f2f"); //RAIM Prediction
+  drawBox(0, 525, 1400, 525, "#2f2f2f"); //GPS Signal Strength
+}
+
+//######################
+//##  Util Functions  ##
+//######################
 function drawLine(x1: number, x2: number, y1: number, y2: number, width: number, color: string) {
   if (ctx) {
     ctx.beginPath();
@@ -71,37 +85,9 @@ function addText(x: number, y: number, text: string, fontSize: number) {
   }
 }
 
-function activeGPSStatus() {
-  addText(945, 30, "Active GPS Status", 25);
-
-  addText(945, 70, "Pilot", 20);
-  addText(945, 110, "Copilot", 20);
-  addText(945, 150, "Status", 20);
-  addText(945, 190, "SBAS", 20);
-}
-
-function raimPrediction() {
-  addText(945, 290, "RAIM Prediction", 25);
-
-  addText(945, 330, "Waypoint", 20);
-  addText(945, 370, "ARV Time", 20);
-  addText(945, 410, "ARV Date", 20);
-}
-
-function gpsSignalStrength() {
-  addText(50, 560, "GPS Signal Strength", 25);
-
-  drawBox(50, 575, 1300, 425, "#2f2f2f");
-}
-
-function initBoxes() {
-  drawBox(0, 0, 466, 525, "#2f2f2f"); //Constellation
-  drawBox(467, 0, 466, 525, "#2f2f2f"); //Satellite Status
-  drawBox(934, 0, 466, 262, "#2f2f2f"); //Active GPS Status
-  drawBox(934, 263, 466, 262, "#2f2f2f"); //RAIM Prediction
-  drawBox(0, 525, 1400, 525, "#2f2f2f"); //GPS Signal Strength
-}
-
+//########################
+//##  Window Functions  ##
+//########################
 function constellation() {
   drawRing(200, 200, 100, 30);
 }
@@ -136,6 +122,29 @@ function satelliteStatus() {
 
   addText(480, 430, "Track", 20);
   addText(800, 430, "___\u00B0", 20);
+}
+
+function activeGPSStatus() {
+  addText(945, 30, "Active GPS Status", 25);
+
+  addText(945, 70, "Pilot", 20);
+  addText(945, 110, "Copilot", 20);
+  addText(945, 150, "Status", 20);
+  addText(945, 190, "SBAS", 20);
+}
+
+function raimPrediction() {
+  addText(945, 290, "RAIM Prediction", 25);
+
+  addText(945, 330, "Waypoint", 20);
+  addText(945, 370, "ARV Time", 20);
+  addText(945, 410, "ARV Date", 20);
+}
+
+function gpsSignalStrength() {
+  addText(50, 560, "GPS Signal Strength", 25);
+
+  drawBox(50, 575, 1300, 425, "#2f2f2f");
 }
 
 initCanvas();
