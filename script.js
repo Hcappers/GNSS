@@ -54,10 +54,10 @@ function addText(x, y, text, fontSize) {
 }
 function activeGPSStatus() {
     addText(945, 30, "Active GPS Status", 25);
-    addText(945, 90, "Pilot", 20);
-    addText(945, 130, "Copilot", 20);
-    addText(945, 170, "Status", 20);
-    addText(945, 210, "SBAS", 20);
+    addText(945, 70, "Pilot", 20);
+    addText(945, 110, "Copilot", 20);
+    addText(945, 150, "Status", 20);
+    addText(945, 190, "SBAS", 20);
 }
 function raimPrediction() {
     addText(945, 290, "RAIM Prediction", 25);
@@ -79,9 +79,32 @@ function initBoxes() {
 function constellation() {
     drawRing(200, 200, 100, 30);
 }
+function satelliteStatus() {
+    addText(480, 30, "Satellite Status", 25);
+    addText(480, 70, "EPU", 20);
+    addText(800, 70, "_.__NM", 20);
+    addText(480, 110, "HDOP", 20);
+    addText(800, 110, "_._", 20);
+    addText(480, 150, "HFOM", 20);
+    addText(800, 150, "____NM", 20);
+    addText(480, 190, "VFOM", 20);
+    addText(800, 190, "____NM", 20);
+    addText(480, 230, "Position", 20);
+    addText(800, 230, "_ __\u00B0__.__'", 20);
+    addText(800, 270, "_ __\u00B0__.__'", 20);
+    addText(480, 310, "Time", 20);
+    addText(800, 310, "__:__:__UTC", 20);
+    addText(480, 350, "ALT GSL", 20);
+    addText(800, 350, "_____", 20);
+    addText(480, 390, "GS", 20);
+    addText(800, 390, "____._KT", 20);
+    addText(480, 430, "Track", 20);
+    addText(800, 430, "___\u00B0", 20);
+}
 initCanvas();
 initBoxes();
 activeGPSStatus();
 raimPrediction();
 gpsSignalStrength();
 constellation();
+satelliteStatus();
