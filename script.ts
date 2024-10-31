@@ -143,8 +143,11 @@ function raimPrediction() {
 
 function gpsSignalStrength() {
   addText(50, 560, "GPS Signal Strength", 25);
-
   drawBox(50, 575, 1300, 425, "#2f2f2f");
+
+  for (let i = 0; i < 3; i++) {
+    drawLine(50, 1350, 1000 - 106 * (i + 1), 1000 - 106 * (i + 1), 2, "white");
+  }
 }
 
 initCanvas();
