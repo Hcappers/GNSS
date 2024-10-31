@@ -137,8 +137,13 @@ function raimPrediction() {
   addText(945, 290, "RAIM Prediction", 25);
 
   addText(945, 330, "Waypoint", 20);
+  addText(1275, 330, "____", 20);
+
   addText(945, 370, "ARV Time", 20);
+  addText(1275, 370, "__:__UTC", 20);
+
   addText(945, 410, "ARV Date", 20);
+  addText(1275, 410, "__-___-__", 20);
 }
 
 function gpsSignalStrength() {
