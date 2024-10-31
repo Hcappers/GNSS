@@ -45,3 +45,7 @@ Added text for the RAIM Prediction and Active GPS Status windows.
 Merged multiple features to main and refactored some code to make it more readible and easier to add features in the furture.
 
 Began work on the bar graph feature to implement a graph that would change given a nuumber.
+
+### 10/31/2024
+
+Added sample text into the satellite status window, began work on creating a background for the bar graph, merged completed features, and reformated the code to make it more readable in the future.
