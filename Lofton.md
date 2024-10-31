@@ -37,3 +37,11 @@ Added a function to add text onto the canvas and merged my test branch to main t
 Started work on adding a bar graph feature to the canvas.
 
 Added text for the RAIM Prediction and Active GPS Status windows.
+
+## Sprint 4
+
+### 10/29/2024
+
+Merged multiple features to main and refactored some code to make it more readible and easier to add features in the furture.
+
+Began work on the bar graph feature to implement a graph that would change given a nuumber.
