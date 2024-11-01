@@ -2,6 +2,7 @@ const canvas = document.getElementById("outerCanvas") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d");
 const width = canvas.clientWidth;
 const height = canvas.clientHeight;
+const bgColor = "#2f2f2f";
 
 //######################
 //##  Init Functions  ##
@@ -18,11 +19,11 @@ function initCanvas() {
 }
 
 function initBoxes() {
-  drawBox(0, 0, 466, 525, "#2f2f2f"); //Constellation
-  drawBox(467, 0, 466, 525, "#2f2f2f"); //Satellite Status
-  drawBox(934, 0, 466, 262, "#2f2f2f"); //Active GPS Status
-  drawBox(934, 263, 466, 262, "#2f2f2f"); //RAIM Prediction
-  drawBox(0, 525, 1400, 525, "#2f2f2f"); //GPS Signal Strength
+  drawBox(0, 0, width / 3, height / 2, bgColor); //Colortellation
+  drawBox(width / 3, 0, width / 3, height / 2, bgColor); //Satellite Status
+  drawBox(2 * (width / 3), 0, width / 3, height / 4, bgColor); //Active GPS Status
+  drawBox(2 * (width / 3), height / 4, width / 3, height / 4, bgColor); //RAIM Prediction
+  drawBox(0, height / 2, width, height / 2, bgColor); //GPS Signal Strength
 }
 
 //######################
@@ -89,82 +90,110 @@ function addText(x: number, y: number, text: string, fontSize: number) {
 //##  Window Functions  ##
 //########################
 function constellation() {
-  drawRing(200, 200, 100, 30);
+  let boxWidth = width / 3;
+  let boxHeight = height / 2;
+  drawRing(boxWidth / 2, boxHeight / 2, 100, 30);
 }
 
 function satelliteStatus() {
-  addText(480, 30, "Satellite Status", 25);
+  let lhsLoc = width / 3 + 20;
+  let rhsLoc = lhsLoc + 300;
+  let yStart = 30;
 
-  addText(480, 70, "EPU", 20);
-  addText(800, 70, "_.__NM", 20);
+  addText(lhsLoc, yStart, "Satellite Status", 25);
 
-  addText(480, 110, "HDOP", 20);
-  addText(800, 110, "_._", 20);
+  addText(lhsLoc, yStart + 40 * 1, "EPU", 20);
+  addText(rhsLoc, yStart + 40 * 1, "_.__NM", 20);
 
-  addText(480, 150, "HFOM", 20);
-  addText(800, 150, "____NM", 20);
+  addText(lhsLoc, yStart + 40 * 2, "HDOP", 20);
+  addText(rhsLoc, yStart + 40 * 2, "_._", 20);
 
-  addText(480, 190, "VFOM", 20);
-  addText(800, 190, "____NM", 20);
+  addText(lhsLoc, yStart + 40 * 3, "HFOM", 20);
+  addText(rhsLoc, yStart + 40 * 3, "____NM", 20);
 
-  addText(480, 230, "Position", 20);
-  addText(800, 230, "_ __\u00B0__.__'", 20);
-  addText(800, 270, "_ __\u00B0__.__'", 20);
+  addText(lhsLoc, yStart + 40 * 4, "VFOM", 20);
+  addText(rhsLoc, yStart + 40 * 4, "____NM", 20);
 
-  addText(480, 310, "Time", 20);
-  addText(800, 310, "__:__:__UTC", 20);
+  addText(lhsLoc, yStart + 40 * 5, "Position", 20);
+  addText(rhsLoc, yStart + 40 * 5, "_ __\u00B0__.__'", 20);
+  addText(rhsLoc, yStart + 40 * 6, "_ __\u00B0__.__'", 20);
 
-  addText(480, 350, "ALT GSL", 20);
-  addText(800, 350, "_____", 20);
+  addText(lhsLoc, yStart + 40 * 7, "Time", 20);
+  addText(rhsLoc, yStart + 40 * 7, "__:__:__UTC", 20);
 
-  addText(480, 390, "GS", 20);
-  addText(800, 390, "____._KT", 20);
+  addText(lhsLoc, yStart + 40 * 8, "ALT GSL", 20);
+  addText(rhsLoc, yStart + 40 * 8, "_____", 20);
 
-  addText(480, 430, "Track", 20);
-  addText(800, 430, "___\u00B0", 20);
+  addText(lhsLoc, yStart + 40 * 9, "GS", 20);
+  addText(rhsLoc, yStart + 40 * 9, "____._KT", 20);
+
+  addText(lhsLoc, yStart + 40 * 10, "Track", 20);
+  addText(rhsLoc, yStart + 40 * 10, "___\u00B0", 20);
 }
 
 function activeGPSStatus() {
-  addText(945, 30, "Active GPS Status", 25);
+  let lhsLoc = 2 * (width / 3) + 20;
+  let rhsLoc = lhsLoc + 300;
+  let yStart = 30;
 
-  addText(945, 70, "Pilot", 20);
-  addText(1275, 70, "____", 20);
+  addText(lhsLoc, yStart, "Active GPS Status", 25);
 
-  addText(945, 110, "Copilot", 20);
-  addText(1275, 110, "____", 20);
+  addText(lhsLoc, yStart + 40 * 1, "Pilot", 20);
+  addText(rhsLoc, yStart + 40 * 1, "____", 20);
 
-  addText(945, 150, "Status", 20);
-  addText(1275, 150, "____", 20);
+  addText(lhsLoc, yStart + 40 * 2, "Copilot", 20);
+  addText(rhsLoc, yStart + 40 * 2, "____", 20);
 
-  addText(945, 190, "SBAS", 20);
-  addText(1275, 190, "____", 20);
+  addText(lhsLoc, yStart + 40 * 3, "Status", 20);
+  addText(rhsLoc, yStart + 40 * 3, "____", 20);
+
+  addText(lhsLoc, yStart + 40 * 4, "SBAS", 20);
+  addText(rhsLoc, yStart + 40 * 4, "____", 20);
 }
 
 function raimPrediction() {
-  addText(945, 290, "RAIM Prediction", 25);
+  let lhsLoc = 2 * (width / 3) + 20;
+  let rhsLoc = lhsLoc + 300;
+  let boxHeight = height / 4;
+  let yStart = 30;
 
-  addText(945, 330, "Waypoint", 20);
-  addText(1275, 330, "____", 20);
+  addText(lhsLoc, boxHeight + 30, "RAIM Prediction", 25);
 
-  addText(945, 370, "ARV Time", 20);
-  addText(1275, 370, "__:__UTC", 20);
+  addText(lhsLoc, boxHeight + yStart + 40 * 1, "Waypoint", 20);
+  addText(rhsLoc, boxHeight + yStart + 40 * 1, "____", 20);
 
-  addText(945, 410, "ARV Date", 20);
-  addText(1275, 410, "__-___-__", 20);
+  addText(lhsLoc, boxHeight + yStart + 40 * 2, "ARV Time", 20);
+  addText(rhsLoc, boxHeight + yStart + 40 * 2, "__:__UTC", 20);
+
+  addText(lhsLoc, boxHeight + yStart + 40 * 3, "ARV Date", 20);
+  addText(rhsLoc, boxHeight + yStart + 40 * 3, "__-___-__", 20);
 }
 
 function gpsSignalStrength() {
-  addText(50, 560, "GPS Signal Strength", 25);
-  drawBox(50, 575, 1300, 425, "#2f2f2f");
+  let boxHeight = height / 2;
+  let boxWidth = width;
+  let graphHeight = boxHeight - 100;
+  let graphWidth = boxWidth - 100;
+  console.log(boxWidth, boxHeight, graphWidth, graphHeight);
+  addText(50, boxHeight + 30, "GPS Signal Strength", 25);
+  drawBox(50, boxHeight + 50, graphWidth, graphHeight, bgColor);
 
+  //TODO: Refactor to be more dynamic
   for (let i = 0; i < 3; i++) {
-    drawLine(50, 1350, 1000 - (425 / 4) * (i + 1), 1000 - (425 / 4) * (i + 1), 2, "white");
+    drawLine(
+      50,
+      boxWidth - 50,
+      boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1),
+      boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1),
+      2,
+      "white",
+    );
   }
 
   let percents: number[] = [0.8, 0.6, 0.4, 0.2];
 
   for (let i = 0; i < percents.length; i++) {
-    drawBox(60 + 85 * i, 575 + 425 * (1 - percents[i]), 75, 425 * percents[i], "#ACE5EE");
+    drawBox(60 + 85 * i, boxHeight + 50 + graphHeight * (1 - percents[i]), 75, graphHeight * percents[i], "#ACE5EE");
   }
 }
 
