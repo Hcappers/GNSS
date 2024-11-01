@@ -174,7 +174,7 @@ function gpsSignalStrength() {
   let boxWidth = width;
   let graphHeight = boxHeight - 100;
   let graphWidth = boxWidth - 100;
-  console.log(boxWidth, boxHeight, graphWidth, graphHeight);
+
   addText(50, boxHeight + 30, "GPS Signal Strength", 25);
   drawBox(50, boxHeight + 50, graphWidth, graphHeight, bgColor);
 
@@ -189,10 +189,16 @@ function gpsSignalStrength() {
     );
   }
 
-  let percents: number[] = [0.8, 0.6, 0.4, 0.2];
+  let percents: number[] = [0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.28, 0.92, 0.26];
 
   for (let i = 0; i < percents.length; i++) {
-    drawBox(60 + 85 * i, boxHeight + 50 + graphHeight * (1 - percents[i]), 75, graphHeight * percents[i], "#ACE5EE");
+    drawBox(
+      60 + (graphWidth / 15) * i,
+      boxHeight + 50 + graphHeight * (1 - percents[i]),
+      graphWidth / 15 - 10,
+      graphHeight * percents[i],
+      "#ACE5EE",
+    );
   }
 }
 

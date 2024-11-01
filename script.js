@@ -144,14 +144,12 @@ function gpsSignalStrength() {
     console.log(boxWidth, boxHeight, graphWidth, graphHeight);
     addText(50, boxHeight + 30, "GPS Signal Strength", 25);
     drawBox(50, boxHeight + 50, graphWidth, graphHeight, bgColor);
-    //TODO: Refactor to be more dynamic
     for (var i = 0; i < 3; i++) {
         drawLine(50, boxWidth - 50, boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), 2, "white");
     }
-    var percents = [0.8, 0.6, 0.4, 0.2, 0.1, 0.28, 0.92];
+    var percents = [0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.28, 0.92, 0.26];
     for (var i = 0; i < percents.length; i++) {
-        drawBox(60 + 85 * i, boxHeight + 50 + graphHeight * (1 - percents[i]), 75, graphHeight * percents[i], "#ACE5EE");
-        // drawBox(60 + 85 * i, 575 + 425 * (1 - percents[i]), 75, 425 * percents[i], "#ACE5EE");
+        drawBox(60 + (graphWidth / 15) * i, boxHeight + 50 + graphHeight * (1 - percents[i]), graphWidth / 15 - 10, graphHeight * percents[i], "#ACE5EE");
     }
 }
 initCanvas();
