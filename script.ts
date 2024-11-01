@@ -178,7 +178,6 @@ function gpsSignalStrength() {
   addText(50, boxHeight + 30, "GPS Signal Strength", 25);
   drawBox(50, boxHeight + 50, graphWidth, graphHeight, bgColor);
 
-  //TODO: Refactor to be more dynamic
   for (let i = 0; i < 3; i++) {
     drawLine(
       50,
