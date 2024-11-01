@@ -21,5 +21,11 @@
 ## Sprint 4
 ### 29OCT24
     - Continued working on the window, created functions to create each window and add the each bit of data for it
-    
+### 31OCT24
+    - Finished the constellation rings, added place holders at the bottom of the gps graph. 
+    - I started working on making the typescript file modular. Having an issue getting the file to read into the HTML file
+### 01NOV24
+    - Continued to work on the typescript modular file. 
+    - Started researching how to take what we have and start implementation into Flight Sime 2020
+
 
