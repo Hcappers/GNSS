@@ -49,3 +49,29 @@ Began work on the bar graph feature to implement a graph that would change given
 ### 10/31/2024
 
 Added sample text into the satellite status window, began work on creating a background for the bar graph, merged completed features, and reformated the code to make it more readable in the future.
+
+### 11/01/2024
+
+I still do not have the exact dimensions of the monitor we will be using in the future for actual testing. To get ahead of this I made all elements of the canvas be dynamic and resize based on the size of the canvas. This will future proof our code and make it easier to implement on a different monitor or different systems if we want to test this with a different aircraft.
+
+An example of the changes I made are as follows:
+
+New Code:
+```typescript
+
+drawBox(
+      60 + (graphWidth / 15) * i,
+      boxHeight + 50 + graphHeight * (1 - percents[i]),
+      graphWidth / 15 - 10,
+      graphHeight * percents[i],
+      "#ACE5EE",
+    );
+```
+
+Old Code:
+```typescript
+
+    drawBox(60 + 85 * i, 575 + 425 * (1 - percents[i]), 75, 425 * percents[i], "#ACE5EE");
+```
+
+Our old code had every element hard coded based on a set size that we were not 100% sure was the actual size we would need.
