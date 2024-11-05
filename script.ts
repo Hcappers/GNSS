@@ -19,7 +19,7 @@ function initCanvas() {
 }
 
 function initBoxes() {
-  drawBox(0, 0, width / 3, height / 2, bgColor); //Colortellation
+  drawBox(0, 0, width / 3, height / 2, bgColor); //Constellation
   drawBox(width / 3, 0, width / 3, height / 2, bgColor); //Satellite Status
   drawBox(2 * (width / 3), 0, width / 3, height / 4, bgColor); //Active GPS Status
   drawBox(2 * (width / 3), height / 4, width / 3, height / 4, bgColor); //RAIM Prediction
@@ -119,13 +119,13 @@ function satelliteStatus() {
   addText(rhsLoc, yStart + 40 * 6, "_ __\u00B0__.__'", 20);
 
   addText(lhsLoc, yStart + 40 * 7, "Time", 20);
-  addText(rhsLoc, yStart + 40 * 7, "__:__:__UTC", 20);
+  addText(rhsLoc, yStart + 40 * 7, "__:__:__UTC", 20); //Simvar: ZULU Time
 
   addText(lhsLoc, yStart + 40 * 8, "ALT GSL", 20);
   addText(rhsLoc, yStart + 40 * 8, "_____", 20);
 
   addText(lhsLoc, yStart + 40 * 9, "GS", 20);
-  addText(rhsLoc, yStart + 40 * 9, "____._KT", 20);
+  addText(rhsLoc, yStart + 40 * 9, "____._KT", 20); //Simvar: GROUND VELOCITY
 
   addText(lhsLoc, yStart + 40 * 10, "Track", 20);
   addText(rhsLoc, yStart + 40 * 10, "___\u00B0", 20);
@@ -189,7 +189,7 @@ function gpsSignalStrength() {
     );
   }
 
-  let percents: number[] = [0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.28, 0.92, 0.26];
+  let percents: number[] = [0.3, 0.4, 0.4, 0.3, 0.2, 0.3, 0.4, 0.4, 0.4, 0.4, 0.3, 0.2, 0.2, 0.5, 0.6];
 
   for (let i = 0; i < percents.length; i++) {
     drawBox(
