@@ -8,7 +8,7 @@ Struggling to get the canvases to stack properly but can edit each individual ca
 
 ## Sprint 2
 
-### 10/8/2024
+### 10/08/2024
 
 Was able to get the canvases to properly stack still working on the resizing and placement of each individual canvas.
 
@@ -75,3 +75,20 @@ Old Code:
 ```
 
 Our old code had every element hard coded based on a set size that we were not 100% sure was the actual size we would need.
+
+### 11/06/2024
+
+Created our entire update presentation.
+
+## Sprint 5
+
+### 11/14/2024
+
+While we are waiting to meet with our customer and get a key for MSFS, I have started researching the SDK and how we can go ahead and make a sample instrument. Once we have a sample instrument we can start importing our current work into the basic one.
+
+[Here](https://docs.flightsimulator.com/html/mergedProjects/How_To_Make_An_Aircraft/Contents/Instruments/Creating_JS_Instrument.htm) is a link that contains a lot of information on making a basic instrument for the simulator.
+
+Things that need to get completed:
+- Get MSFS and the SDK (Need a customer meeting so hopefully they will pay for the key)
+- Create a basic instrument (Research needed and need a key to get the SDK and need to use a windows machine)
+- Import our current work
