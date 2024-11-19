@@ -58,12 +58,14 @@ function drawRing(x, y, outerRadius, gap) {
         // Draw middle ring
         ctx.beginPath();
         ctx.arc(x, y, middleRadius, 0, Math.PI * 2, false);
+
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.stroke();
         // Draw inner ring
         ctx.beginPath();
         ctx.arc(x, y, innerRadius, 0, Math.PI * 2, false);
+
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.stroke();
@@ -101,11 +103,11 @@ function satelliteStatus() {
     addText(rhsLoc, yStart + 40 * 5, "_ __\u00B0__.__'", 20);
     addText(rhsLoc, yStart + 40 * 6, "_ __\u00B0__.__'", 20);
     addText(lhsLoc, yStart + 40 * 7, "Time", 20);
-    addText(rhsLoc, yStart + 40 * 7, "__:__:__UTC", 20);
+    addText(rhsLoc, yStart + 40 * 7, "__:__:__UTC", 20); //Simvar: ZULU Time
     addText(lhsLoc, yStart + 40 * 8, "ALT GSL", 20);
     addText(rhsLoc, yStart + 40 * 8, "_____", 20);
     addText(lhsLoc, yStart + 40 * 9, "GS", 20);
-    addText(rhsLoc, yStart + 40 * 9, "____._KT", 20);
+    addText(rhsLoc, yStart + 40 * 9, "____._KT", 20); //Simvar: GROUND VELOCITY
     addText(lhsLoc, yStart + 40 * 10, "Track", 20);
     addText(rhsLoc, yStart + 40 * 10, "___\u00B0", 20);
 }
@@ -146,13 +148,10 @@ function gpsSignalStrength() {
     for (var i = 0; i < 3; i++) {
         drawLine(50, boxWidth - 50, boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), 2, "white");
     }
-    var percents = [0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.8, 0.6, 0.4, 0.2, 0.28, 0.92, 0.26];
+
+    var percents = [0.3, 0.4, 0.4, 0.3, 0.2, 0.3, 0.4, 0.4, 0.4, 0.4, 0.3, 0.2, 0.2, 0.5, 0.6];
     for (var i = 0; i < percents.length; i++) {
         drawBox(60 + (graphWidth / 15) * i, boxHeight + 50 + graphHeight * (1 - percents[i]), graphWidth / 15 - 10, graphHeight * percents[i], "#ACE5EE");
-    }
-    //to add the place holder '___' for the constellation gps signal strength
-    for (var i = 0; i < 15; i++) {
-        addText(85 + 85 * i, 1005, "___", 20);
     }
 }
 initCanvas();
