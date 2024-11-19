@@ -92,3 +92,7 @@ Things that need to get completed:
 - Get MSFS and the SDK (Need a customer meeting so hopefully they will pay for the key)
 - Create a basic instrument (Research needed and need a key to get the SDK and need to use a windows machine)
 - Import our current work
+
+### 11/18/2024
+
+Just purchased a copy of MSFS and downloaded the SDK. Looking into more documentation to start pulling data from the simulator and being able to create a sample instrument.
