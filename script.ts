@@ -52,26 +52,26 @@ function drawBox(x: number, y: number, width: number, height: number, color: str
 
 function drawRing(x: number, y: number, outerRadius: number, gap: number) {
   if (ctx) {
-    let innerRadius1 = outerRadius - gap;
-    let innerRadius2 = outerRadius - 2 * gap;
+    let middleRadius = outerRadius + gap * 1.5; 
+    let innerRadius = outerRadius - gap * 2;
 
-    //  Draw outer ring
-    ctx.arc(x, y, outerRadius, 0, Math.PI * 2, false);
-    ctx.strokeStyle = "white";
+    // Draw outer ring
     ctx.beginPath();
+    ctx.arc(x, y, outerRadius + gap * 4, 0, Math.PI * 2, false);
+    ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Draw middle ring
     ctx.beginPath();
-    ctx.arc(x, y, innerRadius1, 0, Math.PI * 2, false);
+    ctx.arc(x, y, middleRadius, 0, Math.PI * 2, false);
     ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
     ctx.stroke();
 
     // Draw inner ring
     ctx.beginPath();
-    ctx.arc(x, y, innerRadius2, 0, Math.PI * 2, false);
+    ctx.arc(x, y, innerRadius, 0, Math.PI * 2, false);
     ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
     ctx.stroke();
@@ -189,8 +189,9 @@ function gpsSignalStrength() {
     );
   }
 
-  let percents: number[] = [0.3, 0.4, 0.4, 0.3, 0.2, 0.3, 0.4, 0.4, 0.4, 0.4, 0.3, 0.2, 0.2, 0.5, 0.6];
 
+  let percents: number[] = [0.3, 0.4, 0.4, 0.3, 0.2, 0.3, 0.4, 0.4, 0.4, 0.4, 0.3, 0.2, 0.2, 0.5, 0.6];
+  
   for (let i = 0; i < percents.length; i++) {
     drawBox(
       60 + (graphWidth / 15) * i,

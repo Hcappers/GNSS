@@ -47,23 +47,25 @@ function drawBox(x, y, width, height, color) {
 }
 function drawRing(x, y, outerRadius, gap) {
     if (ctx) {
-        var innerRadius1 = outerRadius - gap;
-        var innerRadius2 = outerRadius - 2 * gap;
-        //  Draw outer ring
-        ctx.arc(x, y, outerRadius, 0, Math.PI * 2, false);
-        ctx.strokeStyle = "white";
+        var middleRadius = outerRadius + gap * 1.5;
+        var innerRadius = outerRadius - gap * 2;
+        // Draw outer ring
         ctx.beginPath();
+        ctx.arc(x, y, outerRadius + gap * 4, 0, Math.PI * 2, false);
+        ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.stroke();
         // Draw middle ring
         ctx.beginPath();
-        ctx.arc(x, y, innerRadius1, 0, Math.PI * 2, false);
+        ctx.arc(x, y, middleRadius, 0, Math.PI * 2, false);
+
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.stroke();
         // Draw inner ring
         ctx.beginPath();
-        ctx.arc(x, y, innerRadius2, 0, Math.PI * 2, false);
+        ctx.arc(x, y, innerRadius, 0, Math.PI * 2, false);
+
         ctx.strokeStyle = "white";
         ctx.lineWidth = 2;
         ctx.stroke();
@@ -146,6 +148,7 @@ function gpsSignalStrength() {
     for (var i = 0; i < 3; i++) {
         drawLine(50, boxWidth - 50, boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), boxHeight + 50 + graphHeight - (graphHeight / 4) * (i + 1), 2, "white");
     }
+
     var percents = [0.3, 0.4, 0.4, 0.3, 0.2, 0.3, 0.4, 0.4, 0.4, 0.4, 0.3, 0.2, 0.2, 0.5, 0.6];
     for (var i = 0; i < percents.length; i++) {
         drawBox(60 + (graphWidth / 15) * i, boxHeight + 50 + graphHeight * (1 - percents[i]), graphWidth / 15 - 10, graphHeight * percents[i], "#ACE5EE");
