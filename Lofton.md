@@ -95,4 +95,18 @@ Things that need to get completed:
 
 ### 11/18/2024
 
-Just purchased a copy of MSFS and downloaded the SDK. Looking into more documentation to start pulling data from the simulator and being able to create a sample instrument.
+Just purchased a copy of MSFS and downloaded the SDK. Looking into more documentation to start pulling data from the simulator and being able to create a sample instrument. Began work on the poster to present what we have currenty accomplished and what we plan to work on in the future.
+
+### 11/20/2024
+
+Continued work on the poster and found some papers that have studied GPS spoofing in airplanes. The two papers I found are:
+- [Attackers can spoof navigation signals without our knowledge. Here's how to fight back GPS lies](https://ieeexplore.ieee.org/abstract/document/7524168)
+- [Survery on effective GPS spoofing countermeasures](https://ieeexplore.ieee.org/document/7845038)
+
+These papers give some background information on GPS spoofing and how it relates to aviation.
+
+### 11/21/2024
+
+We had a customer meeting so we could check in and present our current work. Our customer has said they liked the current work that we have and they feel we are on track with what they are looking for. Our next step are to fully add our current work to be usable in MSFS.
+
+Also finished the poster and sent it to the team to review. Updating the information on the SDD as it is a little outdated and doesn't fully allign with the current goals and expectations of the project.
