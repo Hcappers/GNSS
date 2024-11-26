@@ -110,3 +110,9 @@ These papers give some background information on GPS spoofing and how it relates
 We had a customer meeting so we could check in and present our current work. Our customer has said they liked the current work that we have and they feel we are on track with what they are looking for. Our next step are to fully add our current work to be usable in MSFS.
 
 Also finished the poster and sent it to the team to review. Updating the information on the SDD as it is a little outdated and doesn't fully allign with the current goals and expectations of the project.
+
+### 11/25/2024
+
+Began updating the poster for the v2 submission using the comments given in the v1 submission. 
+
+Also worked on the SRS v2. Added diagrams to sections 7 and 2. Updated some information in section 2.4 and 2.5.
