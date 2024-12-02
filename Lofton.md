@@ -113,7 +113,7 @@ Also finished the poster and sent it to the team to review. Updating the informa
 
 ### 11/25/2024
 
-Began updating the poster for the v2 submission using the comments given in the v1 submission. 
+Began updating the poster for the v2 submission using the comments given in the v1 submission.
 
 Also worked on the SRS v2. Added diagrams to sections 7 and 2. Updated some information in section 2.4 and 2.5.
 
@@ -131,3 +131,7 @@ Things I worked on:
 - Updated diagrams
 
 Continued work on the SRS v2 submission.
+
+### 12/2/2024
+
+Created the Test Plan v1 document and started work on it. The presentation for the 10 min video was created and shared with us. I will be reviewing it and making any necessary changes for the presentation tomorrow. Poster v2 was also submitted today with all recommended changes for Clay and the professors.
