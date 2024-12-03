@@ -66,9 +66,49 @@ Made significant progress on SDD V1 and presented a 4-minute team update summari
 
 Continued refining SDD V1, concentrating on software design, constraints, and internal communication architecture.
 
-### 11/16/2024
+### 11/13/2024
 
 Continued SDD V1 draft, preparing it for review and submission.
 
 Started drafting a project poster, outlining the key components, features, and future goals.
+
+## Sprint 5
+
+### 11/21/2024
+
+Completed and submitted SDD V1 after finalizing the draft.
+
+### 11/21/2024
+
+Reviewed the draft of the project poster, ensuring it highlights key components, features, and future goals.
+
+### 11/21/2024
+
+Continued refining SRS V2, focusing on software design, constraints, and internal communication architecture.
+
+### 11/26/2024
+
+Completed and submitted SRS V2, focusing on software design, constraints, and internal communication architecture.
+
+## Sprint 6
+
+### 12/02/2024
+
+Updated the Change Summary to include notes on edits made in Versions 0.1 and 0.2.
+
+### 12/02/2024
+
+Edited the Introduction to clarify the purpose and system overview, aligning them with the current phase of the project.
+
+### 12/02/2024
+
+Updated the Testing Approach to focus on integration and stability testing for the GPS display and outlined steps for testing future features.
+
+### 12/02/2024
+
+Revised the System Overview to emphasize current goals like integration and stability and included placeholders for upcoming GPS features.
+
+
+
+
 
