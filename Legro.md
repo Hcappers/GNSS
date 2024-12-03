@@ -108,7 +108,11 @@ Updated the Testing Approach to focus on integration and stability testing for t
 
 Revised the System Overview to emphasize current goals like integration and stability and included placeholders for upcoming GPS features.
 
+### 12/03/2024
 
+Edited and contributed to the 10-min video powerpoint to throughly review the GNSS Project up to this point.
 
+### 12/03/2024
 
+Recorded the GNSS 10-min video with team members reviewing the progress of the senior design project during this semester.
 
