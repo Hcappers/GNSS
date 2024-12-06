@@ -116,3 +116,10 @@ Edited and contributed to the 10-min video powerpoint to throughly review the GN
 
 Recorded the GNSS 10-min video with team members reviewing the progress of the senior design project during this semester.
 
+### 12/05/2024
+
+Refined the System Test Plan (STP) by improving test case formatting, ensuring consistency across software and hardware tests, and enhancing traceability between test cases and requirements. 
+
+### 12/05/2024
+
+Updated tables and sections to provide clearer guidance, maintainability, and alignment with the overall project standards.
