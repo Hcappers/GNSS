@@ -126,6 +126,7 @@ Refined the System Test Plan (STP) by improving test case formatting, ensuring c
 
 Updated tables and sections to provide clearer guidance, maintainability, and alignment with the overall project standards.
 
+
 # Spring 2025
 
 ## Sprint 1
@@ -134,13 +135,10 @@ Updated tables and sections to provide clearer guidance, maintainability, and al
 Added some extra requirements under Behavioral Requirements to cover more ground.
 
 ### 01/13/2025
-Tweaked the Table of Contents so all the page numbers are accurate. No more guessing!
-
-### 01/13/2025
-Included MSFS Developer Support as a reference in the project doc—seemed like a useful addition.
+Refined the Table of Contents to ensure all page numbers are accurate. Also added MSFS Developer Support as a reference in the project documentation.
 
 ### 01/22/2025
-Added "System Tester" as a new actor in the project. More hands on deck!
+Added "System Tester" as a new actor in the project. 
 
 ### 01/22/2025
 Created a new use case: "Validate System Performance," so the new actor actually has a role.
@@ -152,37 +150,19 @@ Dropped a link to MSFS Developer Support in the General Constraints section—go
 Locked in display size requirements: 800x480 (16:9) and 1024x768 (4:3). No more guesswork on resolutions.
 
 ### 01/27/2025
-Reworked External Interface Requirements to reflect the hardcoded GPS plugin setup and MSFS SDK integration.
+Refined External, User, Hardware, and Software Interface Requirements to align with the hardcoded GPS plugin setup and MSFS SDK integration. Clarified that the User Interface is read-only, displaying pre-defined GPS data with no custom inputs. 
 
 ### 01/27/2025
-Clarified that the User Interface is read-only, showing pre-defined GPS data—no custom inputs.
+Confirmed that Hardware Interfaces operate independently, without reliance on external hardware. Also updated Software Interfaces to detail how the GPS display integrates with MSFS 2020 SDK.
 
 ### 01/27/2025
-Made it clear that Hardware Interfaces don’t rely on any external hardware—keeps things simple.
-
-### 01/27/2025
-Updated Software Interfaces to explain how the GPS display integrates with MSFS 2020 SDK.
-
-### 01/27/2025
-Confirmed that the plugin doesn’t need external communication to function—everything stays self-contained.
+Confirmed that the plugin doesn’t need external communication to function, everything stays self-contained.
 
 ### 01/27/2025
 Reviewed the Behavioral Requirements section and made sure it aligns with how the system actually works.
 
 ### 01/27/2025
-Added Section 8 to outline stakeholder communication and how this thing impacts society.
-
-### 01/27/2025
-Added a Public Health section to assess how this GPS plugin affects aviation safety.
-
-### 01/27/2025
-Broke down the plugin’s impact on flight safety and simulation under the new Safety section.
-
-### 01/27/2025
-Added a Welfare section to highlight how this plugin benefits the aviation world.
-
-### 01/27/2025
-Covered the plugin’s environmental benefits vs. traditional flight training methods.
+Expanded Section 8 to cover stakeholder communication and the broader societal impact of the GPS plugin. Added dedicated sections on Public Health, Safety, and Welfare to assess its role in aviation safety and training. Also included an Environmental Impact section to compare its benefits against traditional flight training methods.
 
 ### 02/04/2025
 Clarified the "To Be Determined" section to define what’s still open-ended in the project scope.
