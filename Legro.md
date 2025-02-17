@@ -130,29 +130,59 @@ Updated tables and sections to provide clearer guidance, maintainability, and al
 
 ## Sprint 1
 
-### 01/01/2025
+### 01/11/2025
+Added some extra requirements under Behavioral Requirements to cover more ground.
 
-### 01/01/2025
+### 01/13/2025
+Tweaked the Table of Contents so all the page numbers are accurate. No more guessing!
 
-### 01/01/2025
+### 01/13/2025
+Included MSFS Developer Support as a reference in the project doc—seemed like a useful addition.
 
-### 01/01/2025
+### 01/22/2025
+Added "System Tester" as a new actor in the project. More hands on deck!
 
-### 01/01/2025
+### 01/22/2025
+Created a new use case: "Validate System Performance," so the new actor actually has a role.
 
-### 01/01/2025
+### 01/22/2025
+Dropped a link to MSFS Developer Support in the General Constraints section—good design needs good guidance.
 
-## Sprint 2
+### 01/22/2025
+Locked in display size requirements: 800x480 (16:9) and 1024x768 (4:3). No more guesswork on resolutions.
 
-### 01/01/2025
+### 01/27/2025
+Reworked External Interface Requirements to reflect the hardcoded GPS plugin setup and MSFS SDK integration.
 
-### 01/01/2025
+### 01/27/2025
+Clarified that the User Interface is read-only, showing pre-defined GPS data—no custom inputs.
 
-### 01/01/2025
+### 01/27/2025
+Made it clear that Hardware Interfaces don’t rely on any external hardware—keeps things simple.
 
-### 01/01/2025
+### 01/27/2025
+Updated Software Interfaces to explain how the GPS display integrates with MSFS 2020 SDK.
 
-### 01/01/2025
+### 01/27/2025
+Confirmed that the plugin doesn’t need external communication to function—everything stays self-contained.
 
-### 01/01/2025
+### 01/27/2025
+Reviewed the Behavioral Requirements section and made sure it aligns with how the system actually works.
 
+### 01/27/2025
+Added Section 8 to outline stakeholder communication and how this thing impacts society.
+
+### 01/27/2025
+Added a Public Health section to assess how this GPS plugin affects aviation safety.
+
+### 01/27/2025
+Broke down the plugin’s impact on flight safety and simulation under the new Safety section.
+
+### 01/27/2025
+Added a Welfare section to highlight how this plugin benefits the aviation world.
+
+### 01/27/2025
+Covered the plugin’s environmental benefits vs. traditional flight training methods.
+
+### 02/04/2025
+Clarified the "To Be Determined" section to define what’s still open-ended in the project scope.
