@@ -132,22 +132,13 @@ Updated tables and sections to provide clearer guidance, maintainability, and al
 ## Sprint 1
 
 ### 01/11/2025
-Added some extra requirements under Behavioral Requirements to cover more ground.
+Added extra requirements under Behavioral Requirements in the SRS to ensure comprehensive coverage and meet assignment expectations.
 
 ### 01/13/2025
 Refined the Table of Contents to ensure all page numbers are accurate. Also added MSFS Developer Support as a reference in the project documentation.
 
 ### 01/22/2025
-Added "System Tester" as a new actor in the project. 
-
-### 01/22/2025
-Created a new use case: "Validate System Performance," so the new actor actually has a role.
-
-### 01/22/2025
-Dropped a link to MSFS Developer Support in the General Constraints section—good design needs good guidance.
-
-### 01/22/2025
-Locked in display size requirements: 800x480 (16:9) and 1024x768 (4:3). No more guesswork on resolutions.
+Introduced "System Tester" as a new actor in the project and added a corresponding use case, "Validate System Performance," to define their role. Also included an MSFS Developer Support link in the General Constraints section for better design guidance. Finalized display size requirements, specifying 800x480 (16:9) and 1024x768 (4:3) resolutions to remove any ambiguity.
 
 ### 01/27/2025
 Refined External, User, Hardware, and Software Interface Requirements to align with the hardcoded GPS plugin setup and MSFS SDK integration. Clarified that the User Interface is read-only, displaying pre-defined GPS data with no custom inputs. 
