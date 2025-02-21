@@ -1,5 +1,7 @@
 # Engineering Notebook: Jonathan Legro
 
+#Fall 2024
+
 ## Sprint 1
 
 ### 09/20/2024
@@ -66,9 +68,92 @@ Made significant progress on SDD V1 and presented a 4-minute team update summari
 
 Continued refining SDD V1, concentrating on software design, constraints, and internal communication architecture.
 
-### 11/16/2024
+### 11/13/2024
 
 Continued SDD V1 draft, preparing it for review and submission.
 
 Started drafting a project poster, outlining the key components, features, and future goals.
 
+## Sprint 5
+
+### 11/21/2024
+
+Completed and submitted SDD V1 after finalizing the draft.
+
+### 11/21/2024
+
+Reviewed the draft of the project poster, ensuring it highlights key components, features, and future goals.
+
+### 11/21/2024
+
+Continued refining SRS V2, focusing on software design, constraints, and internal communication architecture.
+
+### 11/26/2024
+
+Completed and submitted SRS V2, focusing on software design, constraints, and internal communication architecture.
+
+## Sprint 6
+
+### 12/02/2024
+
+Updated the Change Summary to include notes on edits made in Versions 0.1 and 0.2.
+
+### 12/02/2024
+
+Edited the Introduction to clarify the purpose and system overview, aligning them with the current phase of the project.
+
+### 12/02/2024
+
+Updated the Testing Approach to focus on integration and stability testing for the GPS display and outlined steps for testing future features.
+
+### 12/02/2024
+
+Revised the System Overview to emphasize current goals like integration and stability and included placeholders for upcoming GPS features.
+
+### 12/03/2024
+
+Edited and contributed to the 10-min video powerpoint to throughly review the GNSS Project up to this point.
+
+### 12/03/2024
+
+Recorded the GNSS 10-min video with team members reviewing the progress of the senior design project during this semester.
+
+### 12/05/2024
+
+Refined the System Test Plan (STP) by improving test case formatting, ensuring consistency across software and hardware tests, and enhancing traceability between test cases and requirements. 
+
+### 12/05/2024
+
+Updated tables and sections to provide clearer guidance, maintainability, and alignment with the overall project standards.
+
+
+# Spring 2025
+
+## Sprint 1
+
+### 01/11/2025
+Added extra requirements under Behavioral Requirements in the SRS to ensure comprehensive coverage and meet assignment expectations.
+
+### 01/13/2025
+Refined the Table of Contents to ensure all page numbers are accurate. Also added MSFS Developer Support as a reference in the project documentation.
+
+### 01/22/2025
+Introduced "System Tester" as a new actor in the project and added a corresponding use case, "Validate System Performance," to define their role. Also included an MSFS Developer Support link in the General Constraints section for better design guidance. Finalized display size requirements, specifying 800x480 (16:9) and 1024x768 (4:3) resolutions to remove any ambiguity.
+
+### 01/27/2025
+Refined External, User, Hardware, and Software Interface Requirements to align with the hardcoded GPS plugin setup and MSFS SDK integration. Clarified that the User Interface is read-only, displaying pre-defined GPS data with no custom inputs. 
+
+### 01/27/2025
+Confirmed that Hardware Interfaces operate independently, without reliance on external hardware. Also updated Software Interfaces to detail how the GPS display integrates with MSFS 2020 SDK.
+
+### 01/27/2025
+Confirmed that the plugin doesn’t need external communication to function, everything stays self-contained.
+
+### 01/27/2025
+Reviewed the Behavioral Requirements section and made sure it aligns with how the system actually works.
+
+### 01/27/2025
+Expanded Section 8 to cover stakeholder communication and the broader societal impact of the GPS plugin. Added dedicated sections on Public Health, Safety, and Welfare to assess its role in aviation safety and training. Also included an Environmental Impact section to compare its benefits against traditional flight training methods.
+
+### 02/04/2025
+Clarified the "To Be Determined" section to define what’s still open-ended in the project scope.

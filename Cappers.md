@@ -1,4 +1,4 @@
-# Engineering Notebook: Haskell Cappers
+code # Engineering Notebook: Haskell Cappers
 
 ## Sprint 1
     - During this sprint I was researching Typescript, Javascript, and working with HTML canvas.
@@ -28,4 +28,35 @@
     - Continued to work on the typescript modular file. 
     - Started researching how to take what we have and start implementation into Flight Sime 2020
 
+## Sprint 4
+### 10/29/2024
+    - Started updating code to help for readibleity, started learning how to make the code modular and split all sections of code into their own file 
+### 10/31/2024
+    - Was able to get all code to run in different files, however when trying to compile the javascript file the code does not run.
+    - More research is needed to see why this is an issue. 
+### 11/01/2024
+    - Fixed some sizing issues with the constelation rings
+    - Made some place holder bars under the bar graphs if we decide to use them
+### 11/06/2024
+    - Merged my branch that I have been working on with main, worked on fixing the code to fit with the current main branch
 
+## Sprint 5
+### 11/14/2024
+     
+### 11/18/2024
+    - Downloaded the SDK for MSFS 202. Looking into the documentation to see how the variables will work with the current state of the code. 
+
+    - Started work on the poster. 
+### 11/20/2024
+### 11/21/2024
+    - Had a scheduled meeting with the customer today. The custormer (CARS Lab) like the current design we have for the project
+    - Finshed reviewing the the poster 
+### 11/25/2024
+    - Worked with the team on updating the SRS v2 
+    
+## Sprint 6
+### 11/26/2024
+    - Helped with the srpint 6 backlog items
+    - contined work on the SRS v2
+### 12/2/2024
+    - Started working on the Test Plan v1 document,
