@@ -135,3 +135,16 @@ Continued work on the SRS v2 submission.
 ### 12/2/2024
 
 Created the Test Plan v1 document and started work on it. The presentation for the 10 min video was created and shared with us. I will be reviewing it and making any necessary changes for the presentation tomorrow. Poster v2 was also submitted today with all recommended changes for Clay and the professors.
+
+
+## Sprint 7
+
+This sprint was used to re-establish connections with our customers and to get a better understading of what they wanted the final product to look like. We used ths sprint to finalize all of our customers requirements and to get some feedback on our current work. This sprint was also used to get some work done on the final SRS.
+
+## Sprint 8
+
+This sprint was heavily focused on the SRS as well as getting some familiarity with MSFS and the SDK. I was able to write some code to make a basic instrument. There is still struggles with getting this instrument to build properly. I will be working on this in the next sprint.
+
+## Sprint 9
+
+My main focus was to get the instrument to build properly and be visible in the simulator. There are still some issues with the building and I've been using the SDK documentation and debugging guide to try and figure out what issues are going on with the instrument I am building. I also created gmail and steam accounts to get two MSFS keys so other teammates can work do testing or implementation of the instrument.
