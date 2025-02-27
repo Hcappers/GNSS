@@ -1,4 +1,4 @@
-code # Engineering Notebook: Haskell Cappers
+# Engineering Notebook: Haskell Cappers
 
 ## Sprint 1
     - During this sprint I was researching Typescript, Javascript, and working with HTML canvas.
@@ -59,4 +59,11 @@ code # Engineering Notebook: Haskell Cappers
     - Helped with the srpint 6 backlog items
     - contined work on the SRS v2
 ### 12/2/2024
-    - Started working on the Test Plan v1 document,
+    - Started working on the Test Plan v1 document.
+
+## Sprint 7
+    - This Sprint was used to re-connect with out customer (CARS Lab) and to get a better understanding of what they are wanting for the final product to be. From the conversations we were able to finalize all of out customer requiremtns and get some feedback of the current state of the product. Another item we worked on during this sprint is the final SRS. I have sent Dr. T an email to see if an option could be to make 2 steam accounts and get keys put on them so we can contiune development on our product. I have conituned to look through the SDK so I have some understanding of how to integrate the product. 
+## Sptint 8
+    - This sprint was heavily focused on the SRS as well as getting some familiarity with MSFS and the SDK. I have been mainly looking through the SDK since we currently only have one key to begin the integration of our product with MSFS2020
+## Sprint 9
+    -
