@@ -148,3 +148,12 @@ This sprint was heavily focused on the SRS as well as getting some familiarity w
 ## Sprint 9
 
 My main focus was to get the instrument to build properly and be visible in the simulator. There are still some issues with the building and I've been using the SDK documentation and debugging guide to try and figure out what issues are going on with the instrument I am building. I also created gmail and steam accounts to get two MSFS keys so other teammates can work do testing or implementation of the instrument.
+
+## Sprint 10
+
+### 3/18/2025
+
+I have created a sample instrument that diplays hello world to the user by replacing the backup speed display. 
+![Hello World Display](/Images/HelloWorldDisplay.png)
+
+I am now working on using this sample to replace a different instrument with our own html/css/js to display our working prototype.
