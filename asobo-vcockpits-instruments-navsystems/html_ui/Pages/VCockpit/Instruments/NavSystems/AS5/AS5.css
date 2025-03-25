@@ -1,0 +1,290 @@
+:root {
+  --bodyHeightScale: 1;
+}
+
+@keyframes TemporaryShow {
+  0%, 100% {
+    visibility: visible;
+  }
+}
+@keyframes TemporaryHide {
+  0%, 100% {
+    visibility: hidden;
+  }
+}
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+html body {
+  -webkit-user-select: none;
+  font-family: var(--font);
+  font-size: calc(var(--viewportHeightRatio) * (36px / 21.6) * var(--currentPageHeight) / 100 );
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#highlight {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#Electricity {
+  width: 100%;
+  height: 100%;
+}
+#Electricity[state=off] {
+  display: none;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/Fonts/RobotoMono-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("/Fonts/RobotoMono-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("/Fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+as5-element {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+as5-element #Mainframe {
+  width: 100%;
+  height: 100%;
+}
+as5-element #PageContainer {
+  font-size: 5vh;
+  font-family: Roboto-Bold;
+}
+as5-element #PageContainer[state=PFD] #PFD, as5-element #PageContainer[state=MFD] #MFD {
+  display: block;
+}
+as5-element #PageContainer #PFD {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+as5-element #PageContainer #PFD #Horizon {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  left: 15%;
+}
+as5-element #PageContainer #PFD #Altimeter {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  left: 80%;
+}
+as5-element #PageContainer #PFD #Airspeed {
+  position: absolute;
+  width: 20%;
+  height: 100%;
+}
+as5-element #PageContainer #PFD #Compass {
+  position: absolute;
+  top: 0%;
+  left: 16%;
+  width: 68%;
+}
+as5-element #PageContainer #PFD #CDI {
+  position: absolute;
+  left: 32.5%;
+  width: 35%;
+  bottom: 10%;
+}
+as5-element #PageContainer #MFD {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+as5-element #PageContainer #MFD #HSICompass {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  width: 90%;
+  height: 90%;
+}
+as5-element #PageContainer #MFD #Infos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+as5-element #PageContainer #MFD #Infos #SelectedHeading {
+  position: absolute;
+  width: 25%;
+  height: 10%;
+  right: 0%;
+  bottom: 0%;
+  border: solid 3px aqua;
+}
+as5-element #PageContainer #MFD #Infos #SelectedHeading #SelectedHeadingSymbol {
+  position: absolute;
+  width: 10%;
+  left: 5%;
+  top: 10%;
+}
+as5-element #PageContainer #MFD #Infos #SelectedHeading #SelectedHeadingValue {
+  position: absolute;
+  left: 35%;
+  color: aqua;
+  bottom: -15%;
+  font-size: 8vh;
+}
+as5-element #PageContainer #MFD #Infos #GroundSpeed {
+  position: absolute;
+  width: 20%;
+  height: 15%;
+  left: -1px;
+  bottom: -1px;
+  border: solid 1px grey;
+  text-align: center;
+  line-height: 1.1;
+}
+as5-element #PageContainer #MFD #Infos #GroundSpeed #GroundSpeedValue {
+  font-size: 8vh;
+  color: magenta;
+}
+as5-element #PageContainer #MFD #Infos #WaypointDistance {
+  position: absolute;
+  width: 30%;
+  height: 15%;
+  right: -1px;
+  top: -1px;
+  border: solid 1px grey;
+  text-align: center;
+  line-height: 1.1;
+}
+as5-element #PageContainer #MFD #Infos #WaypointDistance #WaypointDistanceValue {
+  font-size: 8vh;
+  color: magenta;
+}
+as5-element #PageContainer #MFD #Infos #WaypointDistance #WaypointDistanceValue[mode=VOR] {
+  color: lime;
+}
+as5-element #PageContainer #ContextualMenu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-color: black;
+  border: solid 2px grey;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+as5-element #PageContainer #ContextualMenu[state=Inactive] {
+  visibility: hidden;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement {
+  width: 23%;
+  height: 80%;
+  text-align: center;
+  font-size: 120%;
+  background: linear-gradient(grey, black);
+  border: solid 2px grey;
+  line-height: 1.2;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement[state=Selected] {
+  border-color: aqua;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement[state=Inactive], as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement[state=Inactive] .ContextualMenuElementValue {
+  color: darkgrey;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement .ContextualMenuElementImage {
+  height: 50%;
+  bottom: 1%;
+  position: relative;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement .ContextualMenuElementImage img {
+  max-height: 100%;
+  max-width: 100%;
+}
+as5-element #PageContainer #ContextualMenu #ContextualMenuElements .ContextualMenuElement .ContextualMenuElementValue {
+  font-size: 115%;
+  color: aqua;
+}
+as5-element #PageContainer #ContextualMenu #SliderMenu {
+  flex: 0.1;
+  margin-bottom: 1%;
+  width: 90%;
+}
+as5-element #PageContainer #ContextualMenu #SliderMenu #SliderMenuBackground {
+  height: 2px;
+  width: inherit;
+  position: absolute;
+  background-color: grey;
+}
+as5-element #PageContainer #ContextualMenu #SliderMenu #SliderMenuCursor {
+  background-color: lightgrey;
+  height: 100%;
+  position: relative;
+  border-radius: 10px;
+  top: -2px;
+}
+as5-element #PageContainer #ContextualMenu #SliderMenu[state=Active] {
+  display: inherit;
+}
+as5-element #PageContainer #ContextualMenu #SliderMenu[state=Inactive] {
+  display: none;
+}
+as5-element #PageContainer #SelectionValueWindow {
+  position: absolute;
+  height: 30%;
+  width: 35%;
+  bottom: 0;
+  left: 32.5%;
+  background: linear-gradient(grey, black 20%);
+  border: 2px solid grey;
+  border-radius: 10px;
+  text-align: center;
+}
+as5-element #PageContainer #SelectionValueWindow[state=Active] {
+  display: inherit;
+}
+as5-element #PageContainer #SelectionValueWindow[state=Inactive] {
+  display: none;
+}
+as5-element #PageContainer #SelectionValueWindow #SelectionValueWindowTitle {
+  color: white;
+}
+as5-element #PageContainer #SelectionValueWindow #SelectionValueWindowValue {
+  color: aqua;
+}
+
+/*# sourceMappingURL=AS5.css.map */

@@ -1,0 +1,435 @@
+class AS3000_PFD extends NavSystem {
+    constructor() {
+        super();
+        this.handleReversionaryMode = false;
+        this.initDuration = 7000;
+    }
+    get IsGlassCockpit() { return true; }
+    get templateID() { return "AS3000_PFD"; }
+    connectedCallback() {
+        super.connectedCallback();
+        this.mainPage = new AS3000_PFD_MainPage();
+        this.pageGroups = [
+            new NavSystemPageGroup("Main", this, [
+                this.mainPage
+            ]),
+        ];
+        this.warnings = new PFD_Warnings();
+        this.addIndependentElementContainer(new NavSystemElementContainer("InnerMap", "InnerMap", new MapInstrumentElement()));
+        this.addIndependentElementContainer(new NavSystemElementContainer("WindData", "WindData", new PFD_WindData()));
+        this.addIndependentElementContainer(new NavSystemElementContainer("Warnings", "Warnings", this.warnings));
+        this.addIndependentElementContainer(new NavSystemElementContainer("SoftKeys", "SoftKeys", new SoftKeys(AS3000_PFD_SoftKeyHtmlElement)));
+    }
+    disconnectedCallback() {
+        super.disconnectedCallback();
+    }
+    Init() {
+        super.Init();
+        this.initSyntheticVision();
+    }
+    initSyntheticVision() {
+        if (SimVar.GetSimVarValue("L:XMLVAR_SyntheticVision_On", "boolean")) {
+            this.mainPage.syntheticVision = true;
+        }
+        else if (SimVar.GetSimVarValue("L:XMLVAR_SyntheticVision_Off", "boolean")) {
+            this.mainPage.syntheticVision = false;
+        }
+        if (this.mainPage.syntheticVision) {
+            diffAndSetAttribute(this.mainPage.attitude.svg, "background", "false");
+            this.getChildById("SyntheticVision").style.display = "block";
+        }
+        else {
+            diffAndSetAttribute(this.mainPage.attitude.svg, "background", "true");
+            this.getChildById("SyntheticVision").style.display = "none";
+        }
+    }
+    parseXMLConfig() {
+        super.parseXMLConfig();
+        let syntheticVision = null;
+        let reversionaryMode = null;
+        if (this.instrumentXmlConfig) {
+            syntheticVision = this.instrumentXmlConfig.getElementsByTagName("SyntheticVision")[0];
+            reversionaryMode = this.instrumentXmlConfig.getElementsByTagName("ReversionaryMode")[0];
+        }
+        if (!syntheticVision || syntheticVision.textContent == "True") {
+            this.mainPage.syntheticVision = true;
+        }
+        else {
+            this.mainPage.syntheticVision = false;
+        }
+        if (reversionaryMode && reversionaryMode.textContent == "True") {
+            this.handleReversionaryMode = true;
+        }
+    }
+    onUpdate(_deltaTime) {
+        super.onUpdate(_deltaTime);
+        if (this.handleReversionaryMode) {
+            this.reversionaryMode = false;
+            if (document.body.hasAttribute("reversionary")) {
+                var attr = document.body.getAttribute("reversionary");
+                if (attr == "true") {
+                    this.reversionaryMode = true;
+                }
+            }
+        }
+    }
+    reboot() {
+        super.reboot();
+        if (this.warnings)
+            this.warnings.reset();
+        if (this.mainPage)
+            this.mainPage.reset();
+    }
+}
+class AS3000_PFD_SoftKeyElement extends SoftKeyElement {
+    constructor(_name = "", _callback = null, _statusCB = null, _valueCB = null) {
+        super(_name, _callback);
+        this.statusBarCallback = _statusCB;
+        this.valueCallback = _valueCB;
+    }
+}
+class AS3000_PFD_SoftKeyHtmlElement extends SoftKeyHtmlElement {
+    constructor(_elem) {
+        super(_elem);
+        this.Element = _elem.getElementsByClassName("Title")[0];
+        this.ValueElement = _elem.getElementsByClassName("Value")[0];
+        this.StatusBar = _elem.getElementsByClassName("Status")[0];
+    }
+    fillFromElement(_elem) {
+        super.fillFromElement(_elem);
+        if (_elem.statusBarCallback == null) {
+            diffAndSetAttribute(this.StatusBar, "state", "None");
+        }
+        else {
+            if (_elem.statusBarCallback()) {
+                diffAndSetAttribute(this.StatusBar, "state", "Active");
+            }
+            else {
+                diffAndSetAttribute(this.StatusBar, "state", "Inactive");
+            }
+        }
+        if (_elem.valueCallback == null) {
+            diffAndSetText(this.ValueElement, "");
+        }
+        else {
+            diffAndSetText(this.ValueElement, _elem.valueCallback());
+        }
+    }
+}
+class AS3000_PFD_MainPage extends NavSystemPage {
+    constructor() {
+        super("Main", "Mainframe", new AS3000_PFD_MainElement());
+        this.rootMenu = new SoftKeysMenu();
+        this.pfdMenu = new SoftKeysMenu();
+        this.attitudeOverlaysMenu = new SoftKeysMenu();
+        this.otherPfdMenu = new SoftKeysMenu();
+        this.windMenu = new SoftKeysMenu();
+        this.syntheticVision = true;
+        this.annunciations = new PFD_Annunciations();
+        this.attitude = new PFD_Attitude();
+        this.mapInstrument = new MapInstrumentElement();
+        this.aoaIndicator = new AS3000_PFD_AngleOfAttackIndicator();
+        this.airspeed = new PFD_Airspeed();
+        this.element = new NavSystemElementGroup([
+            this.attitude,
+            this.airspeed,
+            new PFD_Altimeter(),
+            this.annunciations,
+            new PFD_Compass(),
+            new PFD_NavStatus(),
+            new AS3000_PFD_BottomInfos(),
+            new AS3000_PFD_ActiveCom(),
+            new AS3000_PFD_ActiveNav(),
+            new AS3000_PFD_NavStatus(),
+            this.aoaIndicator,
+            this.mapInstrument,
+            new PFD_AutopilotDisplay(),
+            new PFD_Minimums(),
+            new PFD_RadarAltitude(),
+            new PFD_MarkerBeacon()
+        ]);
+    }
+    init() {
+        super.init();
+        this.hsi = this.gps.getChildById("Compass");
+        this.wind = this.gps.getChildById("WindData");
+        this.mapInstrument.setGPS(this.gps);
+        if (this.syntheticVision) {
+            diffAndSetAttribute(this.attitude.svg, "background", "false");
+        }
+        else {
+            diffAndSetAttribute(this.attitude.svg, "background", "true");
+        }
+        this.rootMenu.elements = [
+            new AS3000_PFD_SoftKeyElement("Map Range-", this.gps.computeEvent.bind(this.gps, "RANGE_DEC")),
+            new AS3000_PFD_SoftKeyElement("Map Range+", this.gps.computeEvent.bind(this.gps, "RANGE_INC")),
+            new AS3000_PFD_SoftKeyElement("PFD Map Settings"),
+            new AS3000_PFD_SoftKeyElement("Traffic Inset", null, this.constElement.bind(this, false)),
+            new AS3000_PFD_SoftKeyElement("PFD Settings", this.switchToMenu.bind(this, this.pfdMenu)),
+            new AS3000_PFD_SoftKeyElement("OBS"),
+            new AS3000_PFD_SoftKeyElement("Active&nbsp;NAV", this.gps.computeEvent.bind(this.gps, "SoftKey_CDI"), null, this.navStatus.bind(this)),
+            new AS3000_PFD_SoftKeyElement("Sensors"),
+            new AS3000_PFD_SoftKeyElement("WX Radar Controls"),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("")
+        ];
+        this.pfdMenu.elements = [
+            new AS3000_PFD_SoftKeyElement("Attitude Overlays", this.switchToMenu.bind(this, this.attitudeOverlaysMenu)),
+            new AS3000_PFD_SoftKeyElement("PFD Mode", null, null, this.constElement.bind(this, "FULL")),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Bearing 1", this.gps.computeEvent.bind(this.gps, "SoftKeys_PFD_BRG1"), null, this.bearing1Status.bind(this)),
+            new AS3000_PFD_SoftKeyElement("Bearing 2", this.gps.computeEvent.bind(this.gps, "SoftKeys_PFD_BRG2"), null, this.bearing2Status.bind(this)),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Other PFD Settings", this.switchToMenu.bind(this, this.otherPfdMenu)),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Back", this.switchToMenu.bind(this, this.rootMenu)),
+            new AS3000_PFD_SoftKeyElement("")
+        ];
+        this.attitudeOverlaysMenu.elements = [
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Synthetic Terrain", this.toggleSVT.bind(this), this.getSvtStatus.bind(this)),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Back", this.switchToMenu.bind(this, this.pfdMenu)),
+            new AS3000_PFD_SoftKeyElement("")
+        ];
+        this.otherPfdMenu.elements = [
+            new AS3000_PFD_SoftKeyElement("Wind", this.switchToMenu.bind(this, this.windMenu)),
+            new AS3000_PFD_SoftKeyElement("AOA", this.gps.computeEvent.bind(this.gps, "SoftKey_PFD_AoAMode"), null, this.aoaStatus.bind(this)),
+            new AS3000_PFD_SoftKeyElement("Altitude Units"),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("COM1 121.5", null, this.constElement.bind(this, false)),
+            new AS3000_PFD_SoftKeyElement("Back", this.switchToMenu.bind(this, this.rootMenu)),
+            new AS3000_PFD_SoftKeyElement("")
+        ];
+        this.windMenu.elements = [
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Option 1", this.gps.computeEvent.bind(this.gps, "SoftKeys_Wind_O1"), this.windModeCompare.bind(this, "1")),
+            new AS3000_PFD_SoftKeyElement("Option 2", this.gps.computeEvent.bind(this.gps, "SoftKeys_Wind_O2"), this.windModeCompare.bind(this, "2")),
+            new AS3000_PFD_SoftKeyElement("Option 3", this.gps.computeEvent.bind(this.gps, "SoftKeys_Wind_O3"), this.windModeCompare.bind(this, "3")),
+            new AS3000_PFD_SoftKeyElement("Off", this.gps.computeEvent.bind(this.gps, "SoftKeys_Wind_Off"), this.windModeCompare.bind(this, "0")),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement(""),
+            new AS3000_PFD_SoftKeyElement("Back", this.switchToMenu.bind(this, this.otherPfdMenu)),
+            new AS3000_PFD_SoftKeyElement("")
+        ];
+        this.softKeys = this.rootMenu;
+        SimVar.SetSimVarValue("L:Glasscockpit_SVTTerrain", "number", (this.syntheticVision ? 1 : 0));
+        this.syntheticVisionElement = this.gps.getChildById("SyntheticVision");
+    }
+    reset() {
+        if (this.annunciations)
+            this.annunciations.reset();
+    }
+    switchToMenu(_menu) {
+        this.softKeys = _menu;
+    }
+    constElement(_elem) {
+        return _elem;
+    }
+    bearing1Status() {
+        if (this.hsi && this.hsi.getAttribute("show_bearing1") == "true") {
+            return this.hsi.getAttribute("bearing1_source");
+        }
+        else {
+            return "OFF";
+        }
+    }
+    bearing2Status() {
+        if (this.hsi && this.hsi.getAttribute("show_bearing2") == "true") {
+            return this.hsi.getAttribute("bearing2_source");
+        }
+        else {
+            return "OFF";
+        }
+    }
+    navStatus() {
+        return this.hsi.getAttribute("nav_source");
+    }
+    windModeCompare(_comparison) {
+        return this.wind.getAttribute("wind-mode") == _comparison;
+    }
+    aoaStatus() {
+        switch (this.aoaIndicator.AoaMode) {
+            case 0:
+                return "OFF";
+                break;
+            case 1:
+                return "ON";
+                break;
+            case 2:
+                return "AUTO";
+                break;
+        }
+    }
+    toggleSVT() {
+        this.syntheticVision = !this.syntheticVision;
+        diffAndSetAttribute(this.attitude.svg, "background", (this.syntheticVision ? "false" : "true"));
+        diffAndSetStyle(this.syntheticVisionElement, StyleProperty.display, (this.syntheticVision ? "Block" : "None"));
+        SimVar.SetSimVarValue("L:Glasscockpit_SVTTerrain", "number", (this.syntheticVision ? 1 : 0));
+    }
+    getSvtStatus() {
+        return this.syntheticVision;
+    }
+    onEvent(_event) {
+        super.onEvent(_event);
+        switch (_event) {
+            case "SVTTerrain_Toggle":
+                this.toggleSVT();
+                break;
+        }
+    }
+}
+class AS3000_PFD_MainElement extends NavSystemElement {
+    init(root) {
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+    }
+}
+class AS3000_PFD_Compass extends PFD_Compass {
+    onEvent(_event) {
+        super.onEvent(_event);
+    }
+}
+class AS3000_PFD_BottomInfos extends NavSystemElement {
+    init(root) {
+        this.tas = this.gps.getChildById("TAS_Value");
+        this.oat = this.gps.getChildById("OAT_Value");
+        this.gs = this.gps.getChildById("GS_Value");
+        this.isa = this.gps.getChildById("ISA_Value");
+        this.timer = this.gps.getChildById("TMR_Value");
+        this.utcTime = this.gps.getChildById("UTC_Value");
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+        let oatValue = SimVar.GetSimVarValue("AMBIENT TEMPERATURE", "celsius");
+        let isaValue = oatValue - SimVar.GetSimVarValue("STANDARD ATM TEMPERATURE", "celsius");
+        diffAndSetText(this.tas, fastToFixed(Simplane.getTrueSpeed(), 0) + "KT");
+        diffAndSetText(this.oat, fastToFixed(oatValue, 0) + "°C");
+        diffAndSetText(this.gs, fastToFixed(SimVar.GetSimVarValue("GPS GROUND SPEED", "knots"), 0) + "KT");
+        diffAndSetText(this.isa, fastToFixed(isaValue, 0) + "°C");
+        diffAndSetText(this.utcTime, Utils.SecondsToDisplayTime(SimVar.GetGlobalVarValue("ZULU TIME", "seconds"), true, true, false));
+        diffAndSetText(this.timer, Utils.SecondsToDisplayTime(SimVar.GetSimVarValue("L:AS3000_" + this.gps.urlConfig.index + "_Timer_Value", "number") / 1000, true, true, false));
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+    }
+}
+class AS3000_PFD_ActiveCom extends NavSystemElement {
+    init(root) {
+        this.activeCom = this.gps.getChildById("ActiveCom");
+        this.activeComFreq = this.gps.getChildById("ActiveComFreq");
+        this.activeComName = this.gps.getChildById("ActiveComName");
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+        diffAndSetHTML(this.activeComFreq, this.gps.frequencyFormat(SimVar.GetSimVarValue("COM ACTIVE FREQUENCY:1", "MHz"), SimVar.GetSimVarValue("COM SPACING MODE:1", "Enum") == 0 ? 2 : 3));
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+    }
+}
+class AS3000_PFD_ActiveNav extends NavSystemElement {
+    init(root) {
+        this.NavInfos = this.gps.getChildById("NavFreqInfos");
+        this.ActiveNav = this.gps.getChildById("ActiveNav");
+        this.ActiveNavFreq = this.gps.getChildById("ActiveNavFreq");
+        this.ActiveNavName = this.gps.getChildById("ActiveNavName");
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+        if (!SimVar.GetSimVarValue("GPS DRIVES NAV1", "Boolean")) {
+            diffAndSetAttribute(this.NavInfos, "state", "Visible");
+            let index = Simplane.getAutoPilotSelectedNav();
+            diffAndSetText(this.ActiveNav, "NAV" + index);
+            diffAndSetHTML(this.ActiveNavFreq, this.gps.frequencyFormat(SimVar.GetSimVarValue("NAV ACTIVE FREQUENCY:" + index, "MHz"), 2));
+            diffAndSetText(this.ActiveNavName, SimVar.GetSimVarValue("NAV SIGNAL:" + index, "number") > 0 ? SimVar.GetSimVarValue("NAV IDENT:" + index, "string") : "");
+        }
+        else {
+            diffAndSetAttribute(this.NavInfos, "state", "Inactive");
+        }
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+    }
+}
+class AS3000_PFD_NavStatus extends PFD_NavStatus {
+    init(root) {
+        this.currentLegFrom = this.gps.getChildById("FromWP");
+        this.currentLegSymbol = this.gps.getChildById("LegSymbol");
+        this.currentLegTo = this.gps.getChildById("ToWP");
+        this.currentLegDistance = this.gps.getChildById("DisValue");
+        this.currentLegBearing = this.gps.getChildById("BrgValue");
+    }
+}
+class AS3000_PFD_AngleOfAttackIndicator extends NavSystemElement {
+    constructor() {
+        super(...arguments);
+        this.AoaMode = 1;
+    }
+    init(root) {
+        this.AoaElement = this.gps.getChildById("AoA");
+        SimVar.SetSimVarValue("L:Glasscockpit_AOA_Mode", "number", this.AoaMode);
+    }
+    onEnter() {
+    }
+    onUpdate(_deltaTime) {
+        diffAndSetAttribute(this.AoaElement, "aoa", Math.min(Math.max(Simplane.getAngleOfAttack(), 0), 16) + '');
+    }
+    onExit() {
+    }
+    onEvent(_event) {
+        if (_event == "SoftKey_PFD_AoAMode") {
+            this.AoaMode = ((this.AoaMode + 1) % 3);
+        }
+        switch (_event) {
+            case "AOA_Off":
+                this.AoaMode = 0;
+                break;
+            case "AOA_On":
+                this.AoaMode = 1;
+                break;
+            case "AOA_Auto":
+                this.AoaMode = 2;
+                break;
+        }
+        if (this.AoaMode == 0) {
+            diffAndSetStyle(this.AoaElement, StyleProperty.display, "none");
+        }
+        else {
+            diffAndSetStyle(this.AoaElement, StyleProperty.display, "block");
+        }
+        SimVar.SetSimVarValue("L:Glasscockpit_AOA_Mode", "number", this.AoaMode);
+    }
+}
+registerInstrument("as3000-pfd-element", AS3000_PFD);
+//# sourceMappingURL=AS3000_PFD.js.map

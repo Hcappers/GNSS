@@ -1,0 +1,36 @@
+<script type="text/html" id="AS3308">
+    <glasscockpit-highlight id="highlight"></glasscockpit-highlight>
+    <div id="Mainframe">
+        <div id="Electricity" state="off">
+            <glasscockpit-hsi id="Compass" no-heading-value="true" no-course-value="true" no-center-text="true" no-turn-rate-indicator="true" no-background="true" large-compass="true"></glasscockpit-hsi>
+            <map-instrument id="MapInstrument" map-mode="plan" bing-id="MFD" show-bing-map="false" show-overlay="false" show-roads="false" config-path="/Pages/VCockpit/Instruments/NavSystems/AS3308/"></map-instrument>
+        </div>
+    </div>
+</script>
+
+<link rel="stylesheet" href="AS3308.css"/>
+
+<script type="text/html" import-script="/JS/SimPlane.js">
+</script>
+
+<script type="text/html" import-template="/Pages/VCockpit/Instruments/Shared/Map/MapInstrument.html">
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/Highlight/Highlight.js">
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/SearchField.js">
+</script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/SelectableElement.js">
+</script>
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/LogicElements/ContextualMenu.js">
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/NavSystem.js">
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/Shared/Templates/HSIndicator/HSIndicator.js">
+</script>
+
+<script type="text/html" import-script="/Pages/VCockpit/Instruments/NavSystems/AS3308/AS3308.js">
+</script>
