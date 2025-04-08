@@ -157,3 +157,7 @@ I have created a sample instrument that diplays hello world to the user by repla
 ![Hello World Display](/Images/HelloWorldDisplay.png)
 
 I am now working on using this sample to replace a different instrument with our own html/css/js to display our working prototype.
+
+### 4/8/2025
+
+I am struggling to get anything new to appear on the MFD or PFD of avionics system. MSFS has little to no documentation and there is almost nothing online to assist. Trying to navigate a 25k+ line JS file that has no documentation has been extremely difficult.
