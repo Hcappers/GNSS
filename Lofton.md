@@ -161,3 +161,7 @@ I am now working on using this sample to replace a different instrument with our
 ### 4/8/2025
 
 I am struggling to get anything new to appear on the MFD or PFD of avionics system. MSFS has little to no documentation and there is almost nothing online to assist. Trying to navigate a 25k+ line JS file that has no documentation has been extremely difficult.
+
+### 4/19/2025
+
+I have just worked for roughly 6 hours attempting to get any custom content to be displayed in the aircraft. I found a couple of forum posts on the official Microsoft Flight Simulator website regarding mods using the DA62 and using those mods as a base to display my own content with no luck. Theres almost no documentation for MSFS and what little there is doesn't mention anything about working with the more complex avionics systems. The [official documentation](https://docs.flightsimulator.com/html/mergedProjects/How_To_Make_An_Aircraft/Contents/Instruments/Creating_JS_Instrument.htm) for editing or creating your own instrument only goes over a simple instrument with ~20 lines of js that works in a completely different way than the other instruments so it doesn't work with the MFD that I need to edit. 
