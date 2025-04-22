@@ -22,18 +22,37 @@ Future Plan:
   - creation of the hardware and having a functional simulation to utilize and continue creation of test cases.
   - I also intend on creating a list of components and communicating with the CARS lab to begin the process of creating the
   - physical hardware.
-
-Sprint 7
+  - 
+Sprint 7 (Second Sem - Sprint 1)
 - Re-established goals and plans with product owner and team
 - Continued research and work on parts list
   
-Sprint 8
+Sprint 8 (Sprint 2)
 - Continued work on parts list
 - Started work on hardware schematic
 - Established plan for testing plugin
   
-Sprint 9
+Sprint 9 (Sprint 3)
 - Finalized parts list
 - Continuing to communicate with product owner to get parts ordered
 - Continued hardware schematic
 - Started code for microprocessor 
+
+Sprint 10 (Sprint 4)
+- Finalized schematic, wiring diagram and design plan
+- Contuined communication to get parts ordered
+- Continued to work on microprocessor code
+
+Sprint 11 (Sprint 5)
+- Continued working on code and documentation
+- Continued research about how to implement parts once ordered
+- Ordered Parts
+- Continued assembly schematics and plans
+
+Sprint 12 (Sprint 6)
+- Recieved parts from parts list, definitely a rush to complete physical board
+- Tested components to ensure functionality via arduino IDE
+- Assembled and wired components
+- Assembled and drilled flight panel board to house components
+- Assembled components onto board
+- Finalized code to integrate with MSFS via Waveshare RP2040 Zero microcontroller using USB HID emulation to allow physical inputs to send keystrokes that are pre-bound to in-game functions in MSFS
