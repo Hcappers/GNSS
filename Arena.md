@@ -12,7 +12,7 @@ Sprint 5
 - Research on SimConnect
 - Devised plan with professor and team to catch up on progress for the next semester
 - 
-Sprint 6
+Sprint 6/Sprint 7
 - Started test case lists for hardware as it interacts with the software component
 - Created simple button function in OnShape
 - Worked on Test Plan document
@@ -22,7 +22,8 @@ Future Plan:
   - creation of the hardware and having a functional simulation to utilize and continue creation of test cases.
   - I also intend on creating a list of components and communicating with the CARS lab to begin the process of creating the
   - physical hardware.
-  - 
+
+Spring Semester 
 Sprint 7 (Second Sem - Sprint 1)
 - Re-established goals and plans with product owner and team
 - Continued research and work on parts list
@@ -49,7 +50,7 @@ Sprint 11 (Sprint 5)
 - Ordered Parts
 - Continued assembly schematics and plans
 
-Sprint 12 (Sprint 6)
+Sprint 12 (Sprint 6/7) 
 - Recieved parts from parts list, definitely a rush to complete physical board
 - Tested components to ensure functionality via arduino IDE
 - Assembled and wired components
