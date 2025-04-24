@@ -164,34 +164,28 @@ Clarified the "To Be Determined" section to define what’s still open-ended in 
 Reviewed and updated traceability between system requirements and test cases to ensure full coverage and detect any gaps.
 
 ### 02/15/2025
-Began drafting test cases for the GPS display plugin. 
-
-### 02/15/2025
-Grouped test cases based on system functions and hardware dependencies.
+Drafted and organized GPS plugin test cases by function and hardware for clearer testing flow.
 
 ### 02/28/2025
-Updated the Software Design Description (SDD) to reflect current implementation structure.
+Updated the Software Design Description (SDD) to match the current implementation and clarify GPS data handling.
 
 ### 03/06/2025
-Submitted the final Software Design Specification (SDS).
+Submitted the final Software Design Specification (SDS) documenting the system architecture and design.
 
 ### 03/18/2025
-Added test case-to-requirement mapping. 
-
-### 03/18/2025
-Validated consistency between functional requirements and testing outcomes.
+Mapped test cases to system requirements and ensured alignment with functional expectations.
 
 ### 03/29/2025
 Addressed advisor feedback and fixed incomplete or unclear test cases.
 
 ### 04/14/2025
-Finalized test case summary and removed duplicates.
+Finalized Software Test Plan (STP) test case summary and removed duplicates.
 
 ### 04/14/2025
-Generated updated status overview for use in final documentation and presentation planning.
+Generated updated Software Test Plan (STP) status overview for use in final documentation and presentation planning.
 
 ### 04/14/2025
-Verified the status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
+Verified Software Test Plan (STP) status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
 
 ### 04/15/2025
-Submitted the final Software Test Plan (STP).
+Submitted the final Software Test Plan (STP) outlining the testing strategy and implementation.
