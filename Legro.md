@@ -157,3 +157,35 @@ Expanded Section 8 to cover stakeholder communication and the broader societal i
 
 ### 02/04/2025
 Clarified the "To Be Determined" section to define what’s still open-ended in the project scope.
+
+## Sprint 2
+
+### 02/10/2025
+Reviewed and updated traceability between system requirements and test cases to ensure full coverage and detect any gaps.
+
+### 02/15/2025
+Began drafting test cases for the GPS display plugin. 
+
+### 02/15/2025
+Grouped test cases based on system functions and hardware dependencies.
+
+### 02/28/2025
+Updated the Software Design Description (SDD) to reflect current implementation structure and clarified internal logic of data rendering.
+
+### 03/12/2025
+Verified the status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
+
+### 03/18/2025
+Added test case-to-requirement mapping. 
+
+### 03/18/2025
+Validated consistency between functional requirements and testing outcomes.
+
+### 03/29/2025
+Integrated feedback from advisor review and addressed incomplete or ambiguous test case outcomes.
+
+### 04/15/2025
+Finalized "GNSS Test Case and Requirement Coverage Summary". Cleaned up duplicate entries.
+
+### 04/18/2025
+Generated updated status overview for use in final documentation and presentation planning.
