@@ -172,9 +172,6 @@ Grouped test cases based on system functions and hardware dependencies.
 ### 02/28/2025
 Updated the Software Design Description (SDD) to reflect current implementation structure and clarified internal logic of data rendering.
 
-### 03/12/2025
-Verified the status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
-
 ### 03/18/2025
 Added test case-to-requirement mapping. 
 
@@ -189,3 +186,6 @@ Finalized "GNSS Test Case and Requirement Coverage Summary". Cleaned up duplicat
 
 ### 04/18/2025
 Generated updated status overview for use in final documentation and presentation planning.
+
+### 04/18/2025
+Verified the status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
