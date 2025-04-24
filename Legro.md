@@ -170,7 +170,10 @@ Began drafting test cases for the GPS display plugin.
 Grouped test cases based on system functions and hardware dependencies.
 
 ### 02/28/2025
-Updated the Software Design Description (SDD) to reflect current implementation structure and clarified internal logic of data rendering.
+Updated the Software Design Description (SDD) to reflect current implementation structure.
+
+### 03/06/2025
+Submitted the final Software Design Specification (SDS).
 
 ### 03/18/2025
 Added test case-to-requirement mapping. 
@@ -179,13 +182,16 @@ Added test case-to-requirement mapping.
 Validated consistency between functional requirements and testing outcomes.
 
 ### 03/29/2025
-Integrated feedback from advisor review and addressed incomplete or ambiguous test case outcomes.
+Addressed advisor feedback and fixed incomplete or unclear test cases.
 
 ### 04/14/2025
-Finalized "GNSS Test Case and Requirement Coverage Summary". Cleaned up duplicate entries.
+Finalized test case summary and removed duplicates.
 
 ### 04/14/2025
 Generated updated status overview for use in final documentation and presentation planning.
 
 ### 04/14/2025
 Verified the status of 74 unique test cases and categorized each as Pass, Fail, Incomplete, or Pending.
+
+### 04/15/2025
+Submitted the final Software Test Plan (STP).
